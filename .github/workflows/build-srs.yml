@@ -1,0 +1,46 @@
+name: Build Sing-box SRS Rule
+
+on:
+  push:
+    branches:
+      - master # 或者你的主要分支名
+    paths:
+      - 'config/singbox/rules/cn.json' # 只有当这个文件变化时才触发
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Install Sing-box
+        run: |
+          go install github.com/sagernet/sing-box/cmd/sing-box@latest
+          # 验证安装
+          ~/go/bin/sing-box version
+
+      - name: Compile SRS file
+        run: |
+          # 将 --output 指向 .json 文件所在的目录
+          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/cn.srs config/singbox/rules/cn.json
+
+      - name: Commit and push SRS file
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # 添加正确路径下的 .srs 文件
+          git add config/singbox/rules/cn.srs
+          # 检查是否有文件变动，如果有，则提交并推送
+          if git diff --staged --quiet; then
+            echo "No changes to the SRS file to commit."
+          else
+            git commit -m "Automated: Build cn.srs from cn.json"
+            git push
+          fi
