@@ -1,2 +1,11 @@
-[domain_suffix]
-ap3615.com
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "ap3615.com",
+        "332336.xyz"
+      ]
+    }
+  ]
+}
