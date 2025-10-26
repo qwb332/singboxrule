@@ -11,7 +11,7 @@
       {"domain":"io.wenbi332.eu.org","action":"predefined","answer":["io.wenbi332.eu.org. IN A 192.168.2.250"]},
       {"domain":"xiaoya.wenbi332.eu.org","action":"predefined","answer":["xiaoya.wenbi332.eu.org. IN A 192.168.2.250"]},
       {"domain":"pan.wenbi332.eu.org","action":"predefined","answer":["pan.wenbi332.eu.org. IN A 192.168.2.250"]},
-      {"domain":"ms365.wenbi332.eu.org","action":"predefined","answer":["ms365.wenbi332.eu.org. IN A 192.168.2.250"]}
+      {"domain":"ms365.wenbi332.eu.org","action":"predefined","answer":["ms365.wenbi332.eu.org. IN A 192.168.2.250"]},
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
