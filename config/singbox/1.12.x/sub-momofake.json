@@ -7,11 +7,6 @@
       {"tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
     ],
     "rules": [
-      {"domain": "op.wenbi332.eu.org", "server": "local", "rewrite": {"a": ["192.168.2.1"]}},
-      {"domain": "io.wenbi332.eu.org", "server": "local", "rewrite": {"a": ["192.168.2.250"]}},
-      {"domain": "xiaoya.wenbi332.eu.org", "server": "local", "rewrite": {"a": ["192.168.2.250"]}},
-      {"domain": "pan.wenbi332.eu.org", "server": "local", "rewrite": {"a": ["192.168.2.250"]}},
-      {"domain": "ms365.wenbi332.eu.org", "server": "local", "rewrite": {"a": ["192.168.2.250"]}},
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
