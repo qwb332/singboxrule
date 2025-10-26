@@ -7,6 +7,7 @@
       {"tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
     ],
     "rules": [
+      {"domain": ["op.wenbi332.eu.org","io.wenbi332.eu.org","xiaoya.wenbi332.eu.org","pan.wenbi332.eu.org","ms365.wenbi332.eu.org"], "server": "local"},
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
