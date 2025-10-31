@@ -5,7 +5,8 @@ on:
     branches:
       - master # 或者你的主要分支名
     paths:
-      - 'config/singbox/rules/cn.json' # 只有当这个文件变化时才触发
+      - 'config/singbox/rules/cn.json'
+      - 'config/singbox/rules/download.json' # 新增：添加 download.json 触发
   workflow_dispatch: # 允许手动触发
 
 jobs:
@@ -28,19 +29,24 @@ jobs:
 
       - name: Compile SRS file
         run: |
-          # 将 --output 指向 .json 文件所在的目录
+          # 编译 cn.json和download.json
           ~/go/bin/sing-box rule-set compile --output config/singbox/rules/cn.srs config/singbox/rules/cn.json
+          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/download.srs config/singbox/rules/download.json
 
       - name: Commit and push SRS file
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # 添加正确路径下的 .srs 文件
+          # 添加 cn.srs
           git add config/singbox/rules/cn.srs
+          # 添加 download.srs
+          git add config/singbox/rules/download.srs
+          
           # 检查是否有文件变动，如果有，则提交并推送
           if git diff --staged --quiet; then
-            echo "No changes to the SRS file to commit."
+            echo "No changes to the SRS file(s) to commit."
           else
-            git commit -m "Automated: Build cn.srs from cn.json"
+            # 修改 commit message 以反映两个文件
+            git commit -m "Automated: Build cn.srs and download.srs from JSON"
             git push
           fi
