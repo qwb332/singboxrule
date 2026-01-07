@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "avav19.tv",
+        "av19.ink",
+        "av19a.com",
+        "david.cdnbuzz.buzz",
+        "ewf2323f.online",
+        "v.imagecdn.top",
+        "cdn1.thisiscdn.top",
+        "onymyway.top"
+      ]
+    }
+  ]
+}
