@@ -7,7 +7,7 @@ on:
     paths:
       - 'config/singbox/rules/cn.json'
       - 'config/singbox/rules/download.json'
-      - 'config/singbox/rules/av.json'
+      - 'config/singbox/rules/kr.json'
   workflow_dispatch: # 允许手动触发
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
           # 编译规则文件
           ~/go/bin/sing-box rule-set compile --output config/singbox/rules/cn.srs config/singbox/rules/cn.json
           ~/go/bin/sing-box rule-set compile --output config/singbox/rules/download.srs config/singbox/rules/download.json
-          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/av.srs config/singbox/rules/av.json
+          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/kr.srs config/singbox/rules/kr.json
 
       - name: Commit and push SRS files
         run: |
@@ -43,12 +43,12 @@ jobs:
           # 添加所有变动的 srs 文件
           git add config/singbox/rules/cn.srs
           git add config/singbox/rules/download.srs
-          git add config/singbox/rules/av.srs
+          git add config/singbox/rules/kr.srs
           
           # 检查是否有文件变动
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Automated: Build cn.srs, download.srs and av.srs"
+            git commit -m "Automated: Build cn.srs, download.srs and kr.srs"
             git push
           fi
