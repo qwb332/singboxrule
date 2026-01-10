@@ -2,18 +2,16 @@
   "version": 2,
   "rules": [
     {
-      "domain": [
-        "david.cdnbuzz.buzz",
-        "ewf2323f.online",
-        "v.imagecdn.top",
-        "cdn1.thisiscdn.top"
-      ],
       "domain_suffix": [
         "avav19.tv",
         "av19.ink",
         "av19.me",
         "av19a.com",
         "onymyway.top"
+        "cdnbuzz.buzz",
+        "ewf2323f.online",
+        "imagecdn.top",
+        "avsee.monster",
       ]
     }
   ]
