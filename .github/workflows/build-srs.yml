@@ -8,6 +8,7 @@ on:
       - 'config/singbox/rules/cn.json'
       - 'config/singbox/rules/download.json'
       - 'config/singbox/rules/kr.json'
+      - 'config/singbox/rules/wechat.json'
   workflow_dispatch: # 允许手动触发
 
 jobs:
@@ -34,6 +35,7 @@ jobs:
           ~/go/bin/sing-box rule-set compile --output config/singbox/rules/cn.srs config/singbox/rules/cn.json
           ~/go/bin/sing-box rule-set compile --output config/singbox/rules/download.srs config/singbox/rules/download.json
           ~/go/bin/sing-box rule-set compile --output config/singbox/rules/kr.srs config/singbox/rules/kr.json
+          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/wechat.srs config/singbox/rules/wechat.json # 🌟 2. 编译出专属的 wechat.srs
 
       - name: Commit and push SRS files
         run: |
@@ -44,11 +46,12 @@ jobs:
           git add config/singbox/rules/cn.srs
           git add config/singbox/rules/download.srs
           git add config/singbox/rules/kr.srs
-          
+          git add config/singbox/rules/wechat.srs
+
           # 检查是否有文件变动
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Automated: Build cn.srs, download.srs and kr.srs"
+            git commit -m "Automated: Build srs rules (including wechat.srs)" # 🌟 4. 更新提交日志信息
             git push
           fi
