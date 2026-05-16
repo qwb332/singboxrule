@@ -2,6 +2,13 @@
   "version": 2,
   "rules": [
     {
+      "domain_keyword": [
+        "wechat",
+        "weixin",
+        "qpic"
+      ]
+    },    
+    {
       "ip_cidr": [
         "43.160.0.0/15",
         "129.226.0.0/16",
