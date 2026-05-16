@@ -1,57 +1,78 @@
-name: Build Sing-box SRS Rule
+name: Sync and Compile Sing-Box Rules
 
 on:
   push:
     branches:
-      - master # 或者你的主要分支名
+      - master # 或者你的主要分支名，如果是 main 改为 main
     paths:
-      - 'config/singbox/rules/cn.json'
-      - 'config/singbox/rules/download.json'
-      - 'config/singbox/rules/kr.json'
-      - 'config/singbox/rules/wechat.json'
-  workflow_dispatch: # 允许手动触发
+      - 'config/singbox/rules/*.json' # 🌟 当你在该目录下添加或修改任何 json 规则时触发
+  schedule:
+    - cron: '0 15 * * *' # 每天北京时间 23:00 定时执行一次
+  workflow_dispatch: # 允许手动点按钮触发
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  sync_and_compile:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout the repository
         uses: actions/checkout@v4
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.22'
-
-      - name: Install Sing-box
+      - name: Set up Git user
         run: |
-          go install github.com/sagernet/sing-box/cmd/sing-box@latest
-          # 验证安装
-          ~/go/bin/sing-box version
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Compile SRS files
+      - name: Get the latest Sing-Box version
+        id: version
         run: |
-          # 编译规则文件
-          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/cn.srs config/singbox/rules/cn.json
-          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/download.srs config/singbox/rules/download.json
-          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/kr.srs config/singbox/rules/kr.json
-          ~/go/bin/sing-box rule-set compile --output config/singbox/rules/wechat.srs config/singbox/rules/wechat.json # 🌟 2. 编译出专属的 wechat.srs
+          # 🌟 动态获取 SagerNet 官方最新的稳定版内核版本号
+          SING_BOX_VERSION=$(curl -sL -o /dev/null -w "%{url_effective}\n" https://github.com/SagerNet/sing-box/releases/latest | grep -oP 'tag/\K[^/]+')
+          SING_BOX_VERSION=${SING_BOX_VERSION#v}
+          echo "SING_BOX_VERSION=$SING_BOX_VERSION" >> $GITHUB_ENV
+
+      - name: Install sing-box
+        run: |
+          # 🌟 直接下载官方编译好的免编译二进制，速度极快
+          curl -Lo sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz
+          tar -xzf sing-box.tar.gz
+          chmod +x sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box
+          sudo mv sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box /usr/local/bin/sing-box
+          sing-box version
+
+      - name: Clear old SRS and Auto Compile all JSON rules
+        run: |
+          TARGET_DIR="config/singbox/rules"
+          
+          # 先清理掉该目录下可能残存的旧二进制 .srs 文件
+          find "$TARGET_DIR" -type f -name "*.srs" -exec rm -f {} \;
+          
+          # 🌟 核心升级：全自动遍历你的 config/singbox/rules 目录
+          # 只要是 .json 文件，全自动编译成同名的 .srs 文件，以后你加任何新规则都不用改这个脚本！
+          find "$TARGET_DIR" -type f -name "*.json" -exec bash -c '
+            json_file="$1"
+            srs_file="${json_file%.json}.srs"
+            echo "Compiling: $json_file -> $srs_file"
+            if ! sing-box rule-set compile --output "$srs_file" "$json_file"; then
+              echo "Error compiling $json_file"
+              exit 1
+            fi
+          ' _ {} \;
+
+          # 清理下载的零碎压缩包，保持 workspace 干净
+          rm -rf sing-box-${SING_BOX_VERSION}-linux-amd64 sing-box.tar.gz
 
       - name: Commit and push SRS files
         run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add config/singbox/rules/*.srs
           
-          # 添加所有变动的 srs 文件
-          git add config/singbox/rules/cn.srs
-          git add config/singbox/rules/download.srs
-          git add config/singbox/rules/kr.srs
-          git add config/singbox/rules/wechat.srs
-
-          # 检查是否有文件变动
-          if git diff --staged --quiet; then
-            echo "No changes to commit."
+          # 🌟 检查暂存区是否有二进制文件的变动
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
           else
-            git commit -m "Automated: Build srs rules (including wechat.srs)" # 🌟 4. 更新提交日志信息
+            git commit -m "Automated: Compile Sing-box SRS rules from config/singbox/rules"
             git push
           fi
