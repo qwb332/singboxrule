@@ -38,6 +38,7 @@
     {"tag": "📥 Download", "type": "selector", "outbounds": []},
     {"tag": "💰 Bybit", "type": "selector", "outbounds": []},
     {"tag": "🔞 KRAV", "type": "selector", "outbounds": []},
+    {"tag": "🌎 Wechat", "type": "selector", "outbounds": ["🎯 全球直连"]},
     {"tag": "🇺🇲 美国手动", "type": "selector", "outbounds": []},
     {"tag": "🇭🇰 香港手动", "type": "selector", "outbounds": []},
     {"tag": "🇹🇼 台湾手动", "type": "selector", "outbounds": []},
@@ -46,7 +47,7 @@
     {"tag": "🐸 手动选择", "type": "selector", "outbounds": []},
     {"tag": "♻️ 自动选择", "type": "urltest", "outbounds": []},
     {"tag": "🍃 延迟辅助", "type": "urltest", "outbounds": ["🚀 默认代理", "🎯 全球直连"]},
-    {"tag": "GLOBAL", "type": "selector", "outbounds": ["🚀 默认代理", "🧠 AI", "📹 YouTube", "🍀 Google", "👨‍💻 Github", "📲 Telegram", "🎵 TikTok", "🎥 Netflix", "💶 PayPal", "🎮 Steam", "🪟 Microsoft", "🐬 OneDrive", "🍏 Apple", "🐠 漏网之鱼", "📥 Download", "💰 Bybit", "🔞 KRAV", "🇺🇲 美国手动", "🇭🇰 香港手动", "🇹🇼 台湾手动", "🇯🇵 日本手动", "🇸🇬 狮城手动", "🐸 手动选择", "♻️ 自动选择", "🍃 延迟辅助", "🎯 全球直连"]},
+    {"tag": "GLOBAL", "type": "selector", "outbounds": ["🚀 默认代理", "🧠 AI", "📹 YouTube", "🍀 Google", "👨‍💻 Github", "📲 Telegram", "🎵 TikTok", "🎥 Netflix", "💶 PayPal", "🎮 Steam", "🪟 Microsoft", "🐬 OneDrive", "🍏 Apple", "🐠 漏网之鱼", "📥 Download", "💰 Bybit", "🔞 KRAV", "🌎 Wechat", "🇺🇲 美国手动", "🇭🇰 香港手动", "🇹🇼 台湾手动", "🇯🇵 日本手动", "🇸🇬 狮城手动", "🐸 手动选择", "♻️ 自动选择", "🍃 延迟辅助", "🎯 全球直连"]},
     {"tag": "🎯 全球直连", "type": "direct"}
   ],
   "route": {
@@ -72,6 +73,7 @@
       {"rule_set": "geosite-download", "outbound": "📥 Download"},
       {"rule_set": "geosite-bybit", "outbound": "💰 Bybit"},
       {"rule_set": "geosite-kr", "outbound": "🔞 KRAV"},
+      {"rule_set": "geosite-wechat", "outbound": "🌎 Wechat"},
       {"rule_set": "geosite-mycn", "outbound": "🎯 全球直连"},
       {"rule_set": "geosite-!cn", "outbound": "🚀 默认代理"},
       {"rule_set": "geosite-cn", "outbound": "🎯 全球直连"},
@@ -103,11 +105,12 @@
       {"tag": "geoip-apple", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/apple.srs", "download_detour": "🎯 全球直连"},
       {"tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs", "download_detour": "🎯 全球直连"},
       {"tag": "geoip-netflix", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/netflix.srs", "download_detour": "🎯 全球直连"},
-      {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://github.com/qljsyph/ruleset-icon/raw/refs/heads/main/sing-box/geoip/China-ASN-combined-ip.srs", "download_detour": "🎯 全球直连"},
       {"tag": "geosite-mycn", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/cn.srs", "download_detour": "🎯 全球直连"},
       {"tag": "geosite-download", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/download.srs", "download_detour": "🎯 全球直连"},
       {"tag": "geosite-kr", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/kr.srs", "download_detour": "🎯 全球直连"},
-      {"tag": "geosite-bybit", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bybit.srs", "download_detour": "🎯 全球直连"}
+      {"tag": "geosite-wechat", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/wechat.srs", "download_detour": "🎯 全球直连"},
+      {"tag": "geosite-bybit", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bybit.srs", "download_detour": "🎯 全球直连"},
+      {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://githubproxy.cc/https://github.com/qljsyph/ruleset-icon/raw/refs/heads/main/sing-box/geoip/China-ASN-combined-ip.srs", "download_detour": "🎯 全球直连"}
     ],
     "final": "🐠 漏网之鱼",
     "default_domain_resolver": {"server": "public"}
