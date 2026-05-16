@@ -2,13 +2,11 @@
   "dns": {
     "servers": [
       {"tag": "local", "type": "udp", "server": "223.6.6.6"},
-      {"tag": "local-v6", "type": "udp", "server": "223.6.6.6"},
       {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
       {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 默认代理"},
       {"tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
     ],
     "rules": [
-      {"domain_keyword": ["wechat", "weixin", "qpic"], "server": "local-v6", "strategy": "ipv6_only"},
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
@@ -55,7 +53,6 @@
     "rules": [
       {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
       {"inbound": "dns-in", "action": "hijack-dns"},
-      {"domain_keyword": ["wechat","weixin","qpic"], "action": "route", "outbound": "🎯 全球直连"},
       {"ip_is_private": true, "outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},
       {"clash_mode": "global", "outbound": "GLOBAL"},
