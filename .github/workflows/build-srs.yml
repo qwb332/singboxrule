@@ -65,14 +65,25 @@ jobs:
           # 清理下载的零碎压缩包，保持 workspace 干净
           rm -rf sing-box-${SING_BOX_VERSION}-linux-amd64 sing-box.tar.gz
 
-      - name: Commit and push SRS files
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Compile Mihomo Rules
+        run: |
+          python scripts/convert_rules.py
+
+      - name: Commit and push compiled rule files
         run: |
           git add config/singbox/rules/*.srs
+          git add config/mihomo/rules/*.mrs
+          git add config/mihomo/rules/*.yaml
           
-          # 🌟 检查暂存区是否有二进制文件的变动
+          # 🌟 检查暂存区是否有变动
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
           else
-            git commit -m "Automated: Compile Sing-box SRS rules from config/singbox/rules"
+            git commit -m "Automated: Compile Sing-box SRS and Mihomo MRS/YAML rules"
             git push
           fi
