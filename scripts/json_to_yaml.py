@@ -36,9 +36,13 @@ def convert_to_clash_payload(rules_data, behavior):
     payload = []
     for rule in rules_data.get("rules", []):
         if behavior == "domain":
-            # For domain behavior, output raw domains
             for item in rule.get("domain", []) + rule.get("domain_suffix", []):
-                payload.append(item)
+                if item.startswith("+."):
+                    payload.append(item)
+                elif item.startswith("."):
+                    payload.append(f"+{item}")
+                else:
+                    payload.append(f"+.{item}")
         elif behavior == "ipcidr":
             for item in rule.get("ip_cidr", []):
                 payload.append(item)
@@ -66,7 +70,7 @@ def main():
     
     os.makedirs(MIHOMO_RULES_DIR, exist_ok=True)
     
-    # 1. Clean existing rule files in Mihomo rules directory (including old .mrs)
+    # 1. 清理 Mihomo 规则目录中的旧文件 (包含 mrs)
     for filename in os.listdir(MIHOMO_RULES_DIR):
         if filename.endswith(".mrs") or filename.endswith(".yaml"):
             try:
@@ -74,7 +78,7 @@ def main():
             except Exception as e:
                 print(f"Failed to remove {filename}: {e}")
             
-    # 2. Download and convert remote fakeipfilter.json
+    # 2. 下载并转换远程 fakeipfilter.json
     print(f"Downloading remote fakeipfilter.json from {FAKEIP_FILTER_URL}...")
     try:
         req = urllib.request.Request(FAKEIP_FILTER_URL, headers={'User-Agent': 'Mozilla/5.0'})
@@ -90,7 +94,7 @@ def main():
     except Exception as e:
         print(f"Failed to fetch/process remote fakeipfilter: {e}")
 
-    # 3. Process local sing-box rules
+    # 3. 处理本地 sing-box rules
     if not os.path.exists(SINGBOX_RULES_DIR):
         print(f"Error: Sing-box rules directory '{SINGBOX_RULES_DIR}' does not exist.")
         sys.exit(1)
