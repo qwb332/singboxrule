@@ -3,7 +3,7 @@ name: Sync and Compile Sing-Box Rules
 on:
   push:
     branches:
-      - master # 或者你的主要分支名，如果是 main 改为 main
+      - main # 🌟 对应您的仓库默认主分支 main
     paths:
       - 'config/singbox/rules/*.json' # 🌟 当你在该目录下添加或修改任何 json 规则时触发
   schedule:
