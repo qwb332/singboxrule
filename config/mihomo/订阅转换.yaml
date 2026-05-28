@@ -6,196 +6,477 @@ rule-providers:
     interval: 86400
     format: yaml
     type: http
-  cn_domain:
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.yaml
-    path: ./ruleset/cn_domain.yaml
+  geosite-ai:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.yaml
+    path: ./ruleset/geosite-ai.yaml
     behavior: domain
     interval: 86400
     format: yaml
     type: http
-  telegram_domain:
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.yaml
-    path: ./ruleset/telegram_domain.yaml
+  geosite-youtube:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.yaml
+    path: ./ruleset/geosite-youtube.yaml
     behavior: domain
     interval: 86400
     format: yaml
     type: http
-  google_domain:
+  geosite-google:
     url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.yaml
-    path: ./ruleset/google_domain.yaml
+    path: ./ruleset/geosite-google.yaml
     behavior: domain
     interval: 86400
     format: yaml
     type: http
-  geolocation-!cn:
+  geosite-github:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.yaml
+    path: ./ruleset/geosite-github.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-onedrive:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.yaml
+    path: ./ruleset/geosite-onedrive.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-microsoft:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.yaml
+    path: ./ruleset/geosite-microsoft.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-apple:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.yaml
+    path: ./ruleset/geosite-apple.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-telegram:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.yaml
+    path: ./ruleset/geosite-telegram.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-tiktok:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.yaml
+    path: ./ruleset/geosite-tiktok.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-netflix:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.yaml
+    path: ./ruleset/geosite-netflix.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-paypal:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.yaml
+    path: ./ruleset/geosite-paypal.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-steamcn:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam@cn.yaml
+    path: ./ruleset/geosite-steamcn.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-steam:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.yaml
+    path: ./ruleset/geosite-steam.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-!cn:
     url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.yaml
-    path: ./ruleset/geolocation-!cn.yaml
+    path: ./ruleset/geosite-!cn.yaml
     behavior: domain
     interval: 86400
     format: yaml
     type: http
-  cn_ip:
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.yaml
-    path: ./ruleset/cn_ip.yaml
+  geosite-cn:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.yaml
+    path: ./ruleset/geosite-cn.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-bybit:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bybit.yaml
+    path: ./ruleset/geosite-bybit.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+
+  # 本地转换生成的规则集 (wechat为classical yaml)
+  geosite-mycn:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/cn.yaml
+    path: ./ruleset/geosite-mycn.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-download:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/download.yaml
+    path: ./ruleset/geosite-download.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-kr:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/kr.yaml
+    path: ./ruleset/geosite-kr.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-wechat:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/wechat.yaml
+    path: ./ruleset/geosite-wechat.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: http
+
+  # IP 规则集
+  private_ip:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.yaml
+    path: ./ruleset/private_ip.yaml
     behavior: ipcidr
     interval: 86400
     format: yaml
     type: http
-  telegram_ip:
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.yaml
-    path: ./ruleset/telegram_ip.yaml
-    behavior: ipcidr
-    interval: 86400
-    format: yaml
-    type: http
-  google_ip:
+  geoip-google:
     url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.yaml
-    path: ./ruleset/google_ip.yaml
+    path: ./ruleset/geoip-google.yaml
     behavior: ipcidr
     interval: 86400
     format: yaml
     type: http
-  bing:
-    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml
-    path: ./ruleset/bing.yaml
-    behavior: classical
+  geoip-apple:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta-lite/geo/geoip/apple.yaml
+    path: ./ruleset/geoip-apple.yaml
+    behavior: ipcidr
     interval: 86400
     format: yaml
     type: http
-  copilot:
-    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot.yaml
-    path: ./ruleset/copilot.yaml
-    behavior: classical
+  geoip-telegram:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.yaml
+    path: ./ruleset/geoip-telegram.yaml
+    behavior: ipcidr
     interval: 86400
     format: yaml
     type: http
-  claude:
-    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml
-    path: ./ruleset/claude.yaml
-    behavior: classical
+  geoip-netflix:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.yaml
+    path: ./ruleset/geoip-netflix.yaml
+    behavior: ipcidr
     interval: 86400
     format: yaml
     type: http
-  bard:
-    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BardAI/BardAI.yaml
-    path: ./ruleset/bard.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  openai:
-    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
-    path: ./ruleset/openai.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  steam:
-    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml
-    path: ./ruleset/steam.yaml
-    behavior: classical
+  geoip-cn:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.yaml
+    path: ./ruleset/geoip-cn.yaml
+    behavior: ipcidr
     interval: 86400
     format: yaml
     type: http
 
 proxy-groups:
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Static.png
+  - name: 🚀 默认代理
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - ♻️ 自动选择
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Global.png
+
+  - name: 🧠 AI
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/OpenAI.png
+
+  - name: 📹 YouTube
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/YouTube.png
+
+  - name: 🍀 Google
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Google.png
+
+  - name: 👨‍💻 Github
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Github.png
+
+  - name: 📲 Telegram
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Telegram.png
+
+  - name: 🎵 TikTok
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/TikTok.png
+
+  - name: 🎥 Netflix
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Netflix.png
+
+  - name: 💶 PayPal
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/PayPal.png
+
+  - name: 🎮 Steam
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Steam.png
+
+  - name: 🪟 Microsoft
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Microsoft.png
+
+  - name: 🐬 OneDrive
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/OneDrive.png
+
+  - name: 🍏 Apple
+    type: select
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - DIRECT
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Apple.png
+
+  - name: 🐠 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 默认代理
+      - DIRECT
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Global.png
+
+  - name: 📥 Download
+    type: select
+    proxies:
+      - DIRECT
+      - 🐸 手动选择
+      - ♻️ 自动选择
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Download.png
+
+  - name: 💰 Bybit
+    type: select
+    proxies:
+      - 🚀 默认代理
+      - DIRECT
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Special.png
+
+  - name: 🔞 KRAV
+    type: select
+    proxies:
+      - 🚀 默认代理
+      - DIRECT
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Special.png
+
+  - name: 🌎 Wechat
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 默认代理
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/WeChat.png
+
+  - name: 🇺🇲 美国手动
+    type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    name: PROXY
+    filter: (?i)美国|USA|US|🇺🇸
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/US.png
+
+  - name: 🇭🇰 香港手动
     type: select
-    proxies:
-      - AUTO
-      - HK AUTO
-      - SG AUTO
-      - JP AUTO
-      - US AUTO
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Urltest.png
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    name: AUTO
-    type: url-test
-    interval: 300
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/OpenAI.png
-    name: AIGC
-    type: select
-    proxies:
-      - SG AUTO
-      - JP AUTO
-      - US AUTO
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Telegram.png
-    name: Telegram
-    type: select
-    proxies:
-      - HK AUTO
-      - SG AUTO
-      - JP AUTO
-      - US AUTO
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Google.png
-    name: Google
-    type: select
-    proxies:
-      - HK AUTO
-      - SG AUTO
-      - JP AUTO
-      - US AUTO
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/HK.png
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     filter: (?i)香港|Hong Kong|HK|🇭🇰
-    name: HK AUTO
-    type: url-test
-    interval: 300
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/SG.png
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    filter: (?i)新加坡|Singapore|🇸🇬
-    name: SG AUTO
-    type: url-test
-    interval: 300
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/JP.png
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    filter: (?i)日本|Japan|🇯🇵
-    name: JP AUTO
-    type: url-test
-    interval: 300
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/US.png
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    filter: (?i)美国|USA|🇺🇸
-    name: US AUTO
-    type: url-test
-    interval: 300
-  - icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Global.png
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    proxies:
-      - PROXY
-      - AUTO
-      - AIGC
-      - Telegram
-      - Google
-      - HK AUTO
-      - SG AUTO
-      - JP AUTO
-      - US AUTO
-    name: GLOBAL
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/HK.png
+
+  - name: 🇹🇼 台湾手动
     type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)台湾|Taiwan|TW|🇹🇼
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/TW.png
+
+  - name: 🇯🇵 日本手动
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)日本|Japan|JP|🇯🇵
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/JP.png
+
+  - name: 🇸🇬 狮城手动
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)新加坡|Singapore|SG|🇸🇬
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/SG.png
+
+  - name: 🐸 手动选择
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Static.png
+
+  - name: ♻️ 自动选择
+    type: url-test
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    interval: 300
+    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Urltest.png
 
 rules:
   - "RULE-SET,private,DIRECT"
-  - "RULE-SET,bing,AIGC"
-  - "RULE-SET,copilot,AIGC"
-  - "RULE-SET,bard,AIGC"
-  - "RULE-SET,openai,AIGC"
-  - "RULE-SET,claude,AIGC"
-  - "RULE-SET,steam,PROXY"
-  - "RULE-SET,telegram_domain,Telegram"
-  - "RULE-SET,telegram_ip,Telegram"
-  - "RULE-SET,google_domain,Google"
-  - "RULE-SET,google_ip,Google"
-  - "RULE-SET,geolocation-!cn,PROXY"
-  - "RULE-SET,cn_domain,DIRECT"
-  - "RULE-SET,cn_ip,DIRECT"
-  - "MATCH,PROXY"
+  - "RULE-SET,geosite-ai,🧠 AI"
+  - "RULE-SET,geosite-youtube,📹 YouTube"
+  - "RULE-SET,geosite-google,🍀 Google"
+  - "RULE-SET,geosite-github,👨‍💻 Github"
+  - "RULE-SET,geosite-onedrive,🐬 OneDrive"
+  - "RULE-SET,geosite-microsoft,🪟 Microsoft"
+  - "RULE-SET,geosite-apple,🍏 Apple"
+  - "RULE-SET,geosite-telegram,📲 Telegram"
+  - "RULE-SET,geosite-tiktok,🎵 TikTok"
+  - "RULE-SET,geosite-netflix,🎥 Netflix"
+  - "RULE-SET,geosite-paypal,💶 PayPal"
+  - "RULE-SET,geosite-steamcn,DIRECT"
+  - "RULE-SET,geosite-steam,🎮 Steam"
+  - "RULE-SET,geosite-download,📥 Download"
+  - "RULE-SET,geosite-bybit,💰 Bybit"
+  - "RULE-SET,geosite-kr,🔞 KRAV"
+  - "RULE-SET,geosite-wechat,🌎 Wechat"
+  - "RULE-SET,geosite-mycn,DIRECT"
+  - "RULE-SET,geosite-!cn,🚀 默认代理"
+  - "RULE-SET,geosite-cn,DIRECT"
+  - "RULE-SET,geoip-google,🍀 Google,no-resolve"
+  - "RULE-SET,geoip-apple,🍏 Apple,no-resolve"
+  - "RULE-SET,geoip-telegram,📲 Telegram,no-resolve"
+  - "RULE-SET,geoip-netflix,🎥 Netflix,no-resolve"
+  - "RULE-SET,private_ip,DIRECT,no-resolve"
+  - "RULE-SET,geoip-cn,DIRECT,no-resolve"
+  - "MATCH,🐠 漏网之鱼"
