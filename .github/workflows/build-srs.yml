@@ -70,9 +70,9 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Compile Mihomo Rules
+      - name: Convert Mihomo Rules to YAML
         run: |
-          python scripts/convert_rules.py
+          python scripts/json_to_yaml.py
 
       - name: Commit and push compiled rule files
         run: |
@@ -83,6 +83,6 @@ jobs:
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
           else
-            git commit -m "Automated: Compile Sing-box SRS and Mihomo MRS/YAML rules"
+            git commit -m "Automated: Sync Sing-box SRS and Mihomo YAML rules"
             git push
           fi
