@@ -165,9 +165,9 @@ rule-providers:
     format: yaml
     type: http
   geoip-apple:
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta-lite/geo/geoip/apple.yaml
+    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml
     path: ./ruleset/geoip-apple.yaml
-    behavior: ipcidr
+    behavior: classical
     interval: 86400
     format: yaml
     type: http
