@@ -76,9 +76,8 @@ jobs:
 
       - name: Commit and push compiled rule files
         run: |
-          git add config/singbox/rules/*.srs
-          git add config/mihomo/rules/*.mrs
-          git add config/mihomo/rules/*.yaml
+          git add config/singbox/rules/
+          git add config/mihomo/rules/
           
           # 🌟 检查暂存区是否有变动
           if git diff-index --quiet HEAD --; then
