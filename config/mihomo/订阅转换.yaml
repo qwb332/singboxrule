@@ -222,7 +222,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 🍀 Google
     type: select
@@ -233,7 +233,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 👨‍💻 Github
     type: select
@@ -244,7 +244,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 📲 Telegram
     type: select
@@ -255,7 +255,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 🎵 TikTok
     type: select
@@ -266,7 +266,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 🎥 Netflix
     type: select
@@ -277,7 +277,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 💶 PayPal
     type: select
@@ -288,7 +288,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 🎮 Steam
     type: select
@@ -299,7 +299,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 🪟 Microsoft
     type: select
@@ -310,7 +310,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 🐬 OneDrive
     type: select
@@ -321,7 +321,7 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 🍏 Apple
     type: select
@@ -332,13 +332,13 @@ proxy-groups:
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
       - 🐸 手动选择
-      - DIRECT
+      - 🎯 全球直连
 
   - name: 🐠 漏网之鱼
     type: select
     proxies:
       - 🚀 默认代理
-      - DIRECT
+      - 🎯 全球直连
       - 🇺🇲 美国手动
       - 🇭🇰 香港手动
       - 🇹🇼 台湾手动
@@ -347,43 +347,27 @@ proxy-groups:
 
   - name: 📥 Download
     type: select
+    include-all: true
     proxies:
-      - DIRECT
-      - 🐸 手动选择
-      - ♻️ 自动选择
-      - 🇺🇲 美国手动
-      - 🇭🇰 香港手动
-      - 🇹🇼 台湾手动
-      - 🇯🇵 日本手动
-      - 🇸🇬 狮城手动
+      - 🎯 全球直连
 
   - name: 💰 Bybit
     type: select
+    include-all: true
     proxies:
-      - 🚀 默认代理
-      - DIRECT
-      - 🇺🇲 美国手动
-      - 🇭🇰 香港手动
-      - 🇹🇼 台湾手动
-      - 🇯🇵 日本手动
-      - 🇸🇬 狮城手动
+      - 🎯 全球直连
 
   - name: 🔞 KRAV
     type: select
+    include-all: true
     proxies:
-      - 🚀 默认代理
-      - DIRECT
-      - 🇺🇲 美国手动
-      - 🇭🇰 香港手动
-      - 🇹🇼 台湾手动
-      - 🇯🇵 日本手动
-      - 🇸🇬 狮城手动
+      - 🎯 全球直连
 
   - name: 🌎 Wechat
     type: select
+    include-all: true
     proxies:
-      - DIRECT
-      - 🚀 默认代理
+      - 🎯 全球直连
 
   - name: 🇺🇲 美国手动
     type: select
@@ -426,8 +410,13 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     interval: 300
 
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+
 rules:
-  - "RULE-SET,private,DIRECT"
+  - "RULE-SET,private,🎯 全球直连"
   - "RULE-SET,geosite-ai,🧠 AI"
   - "RULE-SET,geosite-youtube,📹 YouTube"
   - "RULE-SET,geosite-google,🍀 Google"
@@ -439,19 +428,19 @@ rules:
   - "RULE-SET,geosite-tiktok,🎵 TikTok"
   - "RULE-SET,geosite-netflix,🎥 Netflix"
   - "RULE-SET,geosite-paypal,💶 PayPal"
-  - "RULE-SET,geosite-steamcn,DIRECT"
+  - "RULE-SET,geosite-steamcn,🎯 全球直连"
   - "RULE-SET,geosite-steam,🎮 Steam"
   - "RULE-SET,geosite-download,📥 Download"
   - "RULE-SET,geosite-bybit,💰 Bybit"
   - "RULE-SET,geosite-kr,🔞 KRAV"
   - "RULE-SET,geosite-wechat,🌎 Wechat"
-  - "RULE-SET,geosite-mycn,DIRECT"
+  - "RULE-SET,geosite-mycn,🎯 全球直连"
   - "RULE-SET,geosite-!cn,🚀 默认代理"
-  - "RULE-SET,geosite-cn,DIRECT"
+  - "RULE-SET,geosite-cn,🎯 全球直连"
   - "RULE-SET,geoip-google,🍀 Google,no-resolve"
   - "RULE-SET,geoip-apple,🍏 Apple,no-resolve"
   - "RULE-SET,geoip-telegram,📲 Telegram,no-resolve"
   - "RULE-SET,geoip-netflix,🎥 Netflix,no-resolve"
-  - "RULE-SET,private_ip,DIRECT,no-resolve"
-  - "RULE-SET,geoip-cn,DIRECT,no-resolve"
+  - "RULE-SET,private_ip,🎯 全球直连,no-resolve"
+  - "RULE-SET,geoip-cn,🎯 全球直连,no-resolve"
   - "MATCH,🐠 漏网之鱼"
