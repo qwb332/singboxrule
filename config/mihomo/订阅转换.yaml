@@ -204,7 +204,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - ♻️ 自动选择
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Global.png
 
   - name: 🧠 AI
     type: select
@@ -213,7 +212,6 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/OpenAI.png
 
   - name: 📹 YouTube
     type: select
@@ -225,7 +223,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/YouTube.png
 
   - name: 🍀 Google
     type: select
@@ -237,7 +234,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Google.png
 
   - name: 👨‍💻 Github
     type: select
@@ -249,7 +245,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Github.png
 
   - name: 📲 Telegram
     type: select
@@ -261,7 +256,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Telegram.png
 
   - name: 🎵 TikTok
     type: select
@@ -273,7 +267,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/TikTok.png
 
   - name: 🎥 Netflix
     type: select
@@ -285,7 +278,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Netflix.png
 
   - name: 💶 PayPal
     type: select
@@ -297,7 +289,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/PayPal.png
 
   - name: 🎮 Steam
     type: select
@@ -309,7 +300,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Steam.png
 
   - name: 🪟 Microsoft
     type: select
@@ -321,7 +311,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Microsoft.png
 
   - name: 🐬 OneDrive
     type: select
@@ -333,7 +322,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/OneDrive.png
 
   - name: 🍏 Apple
     type: select
@@ -345,7 +333,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
       - DIRECT
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Apple.png
 
   - name: 🐠 漏网之鱼
     type: select
@@ -357,7 +344,6 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Global.png
 
   - name: 📥 Download
     type: select
@@ -370,7 +356,6 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Download.png
 
   - name: 💰 Bybit
     type: select
@@ -382,7 +367,6 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Special.png
 
   - name: 🔞 KRAV
     type: select
@@ -394,62 +378,53 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Special.png
 
   - name: 🌎 Wechat
     type: select
     proxies:
       - DIRECT
       - 🚀 默认代理
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/WeChat.png
 
   - name: 🇺🇲 美国手动
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     filter: (?i)美国|USA|US|🇺🇸
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/US.png
 
   - name: 🇭🇰 香港手动
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     filter: (?i)香港|Hong Kong|HK|🇭🇰
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/HK.png
 
   - name: 🇹🇼 台湾手动
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     filter: (?i)台湾|Taiwan|TW|🇹🇼
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/TW.png
 
   - name: 🇯🇵 日本手动
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     filter: (?i)日本|Japan|JP|🇯🇵
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/JP.png
 
   - name: 🇸🇬 狮城手动
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     filter: (?i)新加坡|Singapore|SG|🇸🇬
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/SG.png
 
   - name: 🐸 手动选择
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Static.png
 
   - name: ♻️ 自动选择
     type: url-test
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     interval: 300
-    icon: https://testingcf.jsdelivr.net/gh/Orz-3/mini@master/Color/Urltest.png
 
 rules:
   - "RULE-SET,private,DIRECT"
