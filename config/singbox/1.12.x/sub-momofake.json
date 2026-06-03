@@ -10,6 +10,7 @@
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
+      {"domain_suffix": ["wenbi332.eu.org"], "server": "local"}
       {"rule_set": "geosite-fakeipfilter", "server": "local"},
       {"rule_set": "geosite-cn", "server": "local"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1}
@@ -54,6 +55,7 @@
     "rules": [
       {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
       {"inbound": "dns-in", "action": "hijack-dns"},
+      {"domain_suffix": ["wenbi332.eu.org"], "outbound": "🎯 全球直连"},
       {"ip_is_private": true, "outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},
       {"clash_mode": "global", "outbound": "GLOBAL"},
