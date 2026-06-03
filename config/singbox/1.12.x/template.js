@@ -130,21 +130,22 @@ if (!Array.isArray(config.endpoints)) {
 }
 config.endpoints.push(...endpoints)
 
-// ⚡ 针对 1.12.22 高版本内核的 Hysteria 2 混淆语法强制平铺修复
+// ⚡ sing-box 官方标准 Hysteria 2 修复代码（100% 对齐官方文档）
 if (Array.isArray(config.outbounds)) {
   config.outbounds = config.outbounds.map(outbound => {
     if (outbound.type === 'hysteria2') {
-      // 1. 强行开启跳过证书校验（双保险解开自签证书死锁）
+      // 1. 强制开启忽略证书验证（对应文档里的 Ignore certificate verification 示例）
       if (!outbound.tls) outbound.tls = {};
       outbound.tls.insecure = true;
       
-      // 2. 检查是否有旧版的嵌套 obfs 结构，如果有，强行拆开平铺到最外层
-      if (outbound.obfs && outbound.obfs.type === 'salamander') {
-        outbound.obfs_type = 'salamander';
-        outbound.obfs_password = outbound.obfs.password || 'glq33e56h79tzgmz';
-        delete outbound.obfs; // 彻底切除旧的嵌套块，防止内核闪退
-        log(`🛡️ 成功将 Hysteria 2 [${outbound.tag}] 的混淆结构平铺修复`);
-      }
+      // 2. 彻底抹除所有转换工具多加的 obfs 乱七八糟的字段，防止内核报 unknown field 闪退
+      delete outbound.obfs;
+      delete outbound.obfs_type;
+      delete outbound.obfs_password;
+      delete outbound["obfs-type"];
+      delete outbound["obfs-password"];
+      
+      log(`🛡️ 成功将 Hysteria 2 [${outbound.tag}] 洗白为官方文档标准格式`);
     }
     return outbound;
   });
