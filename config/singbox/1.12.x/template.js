@@ -12,6 +12,10 @@
 // 例如: http://a.com?token=123 应使用 url=http%3A%2F%2Fa.com%3Ftoken%3D123
 
 // ⚠️ 如果 outbounds 为空, 自动创建 COMPATIBLE(direct) 并插入 防止报错
+// https://raw.githubusercontent.com/xream/scripts/main/surge/modules/sub-store-scripts/sing-box/template.js#type=组合订阅&name=机场&outbound=🕳ℹ️all|all-auto🕳ℹ️hk|hk-auto🏷ℹ️港|hk|hongkong|kong kong|🇭🇰🕳ℹ️tw|tw-auto🏷ℹ️台|tw|taiwan|🇹🇼🕳ℹ️jp|jp-auto🏷ℹ️日本|jp|japan|🇯🇵🕳ℹ️sg|sg-auto🏷ℹ️^(?!.*(?:us)).*(新|sg|singapore|🇸🇬)🕳ℹ️us|us-auto🏷ℹ️美|us|unitedstates|united states|🇺🇸
+
+// 示例说明
+
 log(`🚀 开始`)
 
 let { type, name, outbound, includeUnsupportedProxy, url } = $arguments
@@ -60,11 +64,48 @@ if (url) {
       'include-unsupported-proxy': includeUnsupportedProxy,
     },
   })
-  console.log(data)
 }
 data = JSON.parse(data)
 outbounds = data.outbounds ?? []
 endpoints = data.endpoints ?? []
+
+// 👇 ================= 新增：WireGuard 自动转换为 Endpoint 的修复代码 ================= 👇
+let wgEndpoints = [];
+outbounds = outbounds.filter(ob => {
+  if (ob.type === 'wireguard') {
+    // 构造新的 peer 结构
+    const peer = {
+      address: ob.server,
+      port: ob.server_port,
+      public_key: ob.peer_public_key,
+      allowed_ips: ["0.0.0.0/0", "::/0"] // 默认全局路由
+    };
+    if (ob.reserved) peer.reserved = ob.reserved;
+    if (ob.pre_shared_key) peer.pre_shared_key = ob.pre_shared_key;
+
+    // 构造新的 endpoint 结构
+    const endpoint = {
+      type: 'wireguard',
+      tag: ob.tag,
+      private_key: ob.private_key,
+      peers: [peer]
+    };
+    
+    // 旧版 local_address 现已简化为 address
+    if (ob.local_address) endpoint.address = ob.local_address;
+    if (ob.mtu) endpoint.mtu = ob.mtu;
+
+    wgEndpoints.push(endpoint);
+    log(`🛡️ 成功将 WireGuard 节点 [${ob.tag}] 转换为 1.11+ 标准 Endpoint 格式`);
+    return false; // 从出站数组中剔除，移入端点数组
+  }
+  return true; // 非 WireGuard 节点保留在 outbounds 中
+});
+
+// 将转换好的 WireGuard 加入端点数组
+endpoints.push(...wgEndpoints);
+// 👆 ================================ 新增结束 ==================================== 👆
+
 proxies = [...outbounds, ...endpoints]
 log(`获取到 ${outbounds.length} 个节点, ${endpoints.length} 个端点`)
 
@@ -134,11 +175,9 @@ config.endpoints.push(...endpoints)
 if (Array.isArray(config.outbounds)) {
   config.outbounds = config.outbounds.map(outbound => {
     if (outbound.type === 'hysteria2') {
-      // 1. 强制开启忽略证书验证（对应文档里的 Ignore certificate verification 示例）
       if (!outbound.tls) outbound.tls = {};
       outbound.tls.insecure = true;
       
-      // 2. 彻底抹除所有转换工具多加的 obfs 乱七八糟的字段，防止内核报 unknown field 闪退
       delete outbound.obfs;
       delete outbound.obfs_type;
       delete outbound.obfs_password;
