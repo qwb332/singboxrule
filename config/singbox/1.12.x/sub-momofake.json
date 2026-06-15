@@ -66,22 +66,6 @@
         "protocol": "bittorrent",
         "outbound": "🎯 全球直连"
       },
-      {
-        "port": 26401,
-        "outbound": "🎯 全球直连"
-      },
-      {
-        "source_port": 26401,
-        "outbound": "🎯 全球直连"
-      },
-      {
-        "port_range": "56881:56899",
-        "outbound": "🎯 全球直连"
-      },
-      {
-        "source_port_range": "56881:56899",
-        "outbound": "🎯 全球直连"
-      },
       {"inbound": "dns-in", "action": "hijack-dns"},
       {"ip_is_private": true, "outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},
