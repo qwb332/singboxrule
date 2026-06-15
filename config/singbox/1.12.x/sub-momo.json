@@ -345,8 +345,27 @@
           "http",
           "tls",
           "quic",
-          "dns"
+          "dns",
+          "bittorrent"
         ]
+      },
+      {
+        "protocol": "bittorrent",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "port": [
+          26401,
+          "56881:56899"
+        ],
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "source_port": [
+          26401,
+          "56881:56899"
+        ],
+        "outbound": "🎯 全球直连"
       },
       {
         "inbound": "dns-in",
