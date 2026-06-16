@@ -26,6 +26,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Download and Merge rules
+        run: |
+          python scripts/merge_rules.py
+
       - name: Get the latest Sing-Box version
         id: version
         run: |
@@ -64,11 +73,6 @@ jobs:
 
           # 清理下载的零碎压缩包，保持 workspace 干净
           rm -rf sing-box-${SING_BOX_VERSION}-linux-amd64 sing-box.tar.gz
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
 
       - name: Convert Mihomo Rules to YAML
         run: |
