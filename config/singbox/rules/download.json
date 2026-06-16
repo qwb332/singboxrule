@@ -2,8 +2,19 @@
   "version": 1,
   "rules": [
     {
+      "domain": [
+        "o4504926511693824.ingest.sentry.io"
+      ]
+    },
+    {
       "domain_suffix": [
-        "mediafire.com"
+        "mediafire.com",
+        "mypikpak.com",
+        "mypikpak.net",
+        "pickpackapp.com",
+        "pikpak.io",
+        "pikpak.me",
+        "pikpakdrive.com"
       ]
     }
   ]
