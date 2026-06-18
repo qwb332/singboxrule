@@ -174,7 +174,8 @@
         "fdfe:dcba:9876::1/126"
       ],
       "auto_route": false,
-      "auto_redirect": false
+      "auto_redirect": false,
+      "find_process": true
     }
   ],
   "experimental": {
