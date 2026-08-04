@@ -1,0 +1,11 @@
+payload:
+  - 'DOMAIN-KEYWORD,wechat'
+  - 'DOMAIN-KEYWORD,weixin'
+  - 'DOMAIN-KEYWORD,qpic'
+  - 'IP-CIDR,43.160.0.0/15'
+  - 'IP-CIDR,129.226.0.0/16'
+  - 'IP-CIDR,101.32.0.0/16'
+  - 'IP-CIDR,101.33.0.0/16'
+  - 'IP-CIDR,150.109.0.0/16'
+  - 'IP-CIDR,43.156.0.0/16'
+  - 'IP-CIDR,203.205.224.0/19'

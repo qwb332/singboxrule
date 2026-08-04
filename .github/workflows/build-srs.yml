@@ -1,0 +1,97 @@
+name: Sync and Compile Sing-Box Rules
+
+on:
+  push:
+    branches:
+      - main # 🌟 对应您的仓库默认主分支 main
+    paths:
+      - 'config/singbox/rules/*.json' # 🌟 当你在该目录下添加或修改任何 json 规则时触发
+  schedule:
+    - cron: '0 15 * * *' # 每天北京时间 23:00 定时执行一次
+  workflow_dispatch: # 允许手动点按钮触发
+
+permissions:
+  contents: write
+
+jobs:
+  sync_and_compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Download and Merge rules
+        run: |
+          python scripts/merge_rules.py
+
+      - name: Get the latest Sing-Box version
+        id: version
+        run: |
+          # 🌟 动态获取 SagerNet 官方最新的稳定版内核版本号
+          SING_BOX_VERSION=$(curl -sL -o /dev/null -w "%{url_effective}\n" https://github.com/SagerNet/sing-box/releases/latest | grep -oP 'tag/\K[^/]+')
+          SING_BOX_VERSION=${SING_BOX_VERSION#v}
+          echo "SING_BOX_VERSION=$SING_BOX_VERSION" >> $GITHUB_ENV
+
+      - name: Install sing-box
+        run: |
+          # 🌟 直接下载官方编译好的免编译二进制，速度极快
+          curl -Lo sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz
+          tar -xzf sing-box.tar.gz
+          chmod +x sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box
+          sudo mv sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box /usr/local/bin/sing-box
+          sing-box version
+
+      - name: Clear old SRS and Auto Compile all JSON rules
+        run: |
+          TARGET_DIR="config/singbox/rules"
+          
+          # 先清理掉该目录下可能残存的旧二进制 .srs 文件
+          find "$TARGET_DIR" -type f -name "*.srs" -exec rm -f {} \;
+          
+          # 🌟 核心升级：自动清洗 JSON 中的 // 注释、多行注释及末尾多余逗号，确保编译不会报错
+          find "$TARGET_DIR" -type f -name "*.json" -exec bash -c '
+            json_file="$1"
+            srs_file="${json_file%.json}.srs"
+            echo "Compiling: $json_file -> $srs_file"
+            
+            tmp_json=$(mktemp)
+            python3 -c "import re; content=open('\''$json_file'\'', encoding='\''utf-8'\'').read(); content=re.sub(r'//.*', '', content); content=re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL); content=re.sub(r',\s*([\]}])', r'\1', content); open(tmp_json, '\''w'\'', encoding='\''utf-8'\'').write(content)"
+            
+            if ! sing-box rule-set compile --output "$srs_file" "$tmp_json"; then
+              echo "Error compiling $json_file"
+              rm -f "$tmp_json"
+              exit 1
+            fi
+            rm -f "$tmp_json"
+          ' _ {} \;
+
+          # 清理下载的零碎压缩包，保持 workspace 干净
+          rm -rf sing-box-${SING_BOX_VERSION}-linux-amd64 sing-box.tar.gz
+
+      - name: Convert Mihomo Rules to YAML
+        run: |
+          python scripts/json_to_yaml.py
+
+      - name: Commit and push compiled rule files
+        run: |
+          git add config/singbox/rules/
+          git add config/mihomo/rules/
+          
+          # 🌟 检查暂存区是否有变动
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
+          else
+            git commit -m "Automated: Sync Sing-box SRS and Mihomo YAML rules"
+            git push
+          fi

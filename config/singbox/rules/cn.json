@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": [
+        "istoreos.com",
+        "ap3615.com",
+        "yximgs.com",
+        "adukwai.com",
+        "tanx.com",
+        "effirst.com",
+        "37wan.com",
+        "ctobsnssdk.com",
+        "kuaishouzt.com",
+        "wenbi332.eu.org",
+        "332336.xyz",
+        "bitcomet.com",
+        "bittorrent.com",
+        "utorrent.com",
+        "transmissionbt.com"
+      ]
+    },
+    {
+      "port": 26401
+    },
+    {
+      "source_port": 26401
+    }
+  ]
+}

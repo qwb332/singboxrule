@@ -1,0 +1,525 @@
+rule-providers:
+  private:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.yaml
+    path: ./ruleset/private.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-ai:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.yaml
+    path: ./ruleset/geosite-ai.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-youtube:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.yaml
+    path: ./ruleset/geosite-youtube.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-google:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.yaml
+    path: ./ruleset/geosite-google.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-github:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.yaml
+    path: ./ruleset/geosite-github.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-onedrive:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.yaml
+    path: ./ruleset/geosite-onedrive.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-microsoft:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.yaml
+    path: ./ruleset/geosite-microsoft.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-apple:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.yaml
+    path: ./ruleset/geosite-apple.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-telegram:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.yaml
+    path: ./ruleset/geosite-telegram.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-tiktok:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.yaml
+    path: ./ruleset/geosite-tiktok.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-netflix:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.yaml
+    path: ./ruleset/geosite-netflix.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-paypal:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.yaml
+    path: ./ruleset/geosite-paypal.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-steamcn:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam@cn.yaml
+    path: ./ruleset/geosite-steamcn.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-steam:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.yaml
+    path: ./ruleset/geosite-steam.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-!cn:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.yaml
+    path: ./ruleset/geosite-!cn.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-cn:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.yaml
+    path: ./ruleset/geosite-cn.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-bybit:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bybit.yaml
+    path: ./ruleset/geosite-bybit.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+
+  # 本地转换生成的规则集 (wechat为classical yaml)
+  geosite-mycn:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/cn.yaml
+    path: ./ruleset/geosite-mycn.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-download:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/download.yaml
+    path: ./ruleset/geosite-download.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-socks5:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/socks5.yaml
+    path: ./ruleset/geosite-socks5.yaml
+    behavior: ipcidr
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-kr:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/kr.yaml
+    path: ./ruleset/geosite-kr.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  geosite-wechat:
+    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/wechat.yaml
+    path: ./ruleset/geosite-wechat.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: http
+
+  # IP 规则集
+  private_ip:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.yaml
+    path: ./ruleset/private_ip.yaml
+    behavior: ipcidr
+    interval: 86400
+    format: yaml
+    type: http
+  geoip-google:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.yaml
+    path: ./ruleset/geoip-google.yaml
+    behavior: ipcidr
+    interval: 86400
+    format: yaml
+    type: http
+  geoip-apple:
+    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml
+    path: ./ruleset/geoip-apple.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: http
+  geoip-telegram:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.yaml
+    path: ./ruleset/geoip-telegram.yaml
+    behavior: ipcidr
+    interval: 86400
+    format: yaml
+    type: http
+  geoip-netflix:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.yaml
+    path: ./ruleset/geoip-netflix.yaml
+    behavior: ipcidr
+    interval: 86400
+    format: yaml
+    type: http
+  geoip-cn:
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.yaml
+    path: ./ruleset/geoip-cn.yaml
+    behavior: ipcidr
+    interval: 86400
+    format: yaml
+    type: http
+
+proxy-groups:
+  - name: 🚀 默认代理
+    type: select
+    include-all: true
+    proxies:
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+      - ♻️ 自动选择
+
+  - name: 🧠 AI
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 📹 YouTube
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🍀 Google
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 👨‍💻 Github
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 📲 Telegram
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🎵 TikTok
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🎥 Netflix
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 💶 PayPal
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🎮 Steam
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🪟 Microsoft
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🐬 OneDrive
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🍏 Apple
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🐠 漏网之鱼
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 📥 Download
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🫆 Socks5
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 💰 Bybit
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🔞 KRAV
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🌎 Wechat
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 默认代理
+      - 🎯 全球直连
+      - 🇺🇲 美国手动
+      - 🇭🇰 香港手动
+      - 🇹🇼 台湾手动
+      - 🇯🇵 日本手动
+      - 🇸🇬 狮城手动
+      - 🐸 手动选择
+
+  - name: 🇺🇲 美国手动
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)美国|USA|US|🇺🇸
+
+  - name: 🇭🇰 香港手动
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)香港|Hong Kong|HK|🇭🇰
+
+  - name: 🇹🇼 台湾手动
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)台湾|Taiwan|TW|🇹🇼
+
+  - name: 🇯🇵 日本手动
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)日本|Japan|JP|🇯🇵
+
+  - name: 🇸🇬 狮城手动
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)新加坡|Singapore|SG|🇸🇬
+
+  - name: 🐸 手动选择
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+
+  - name: ♻️ 自动选择
+    type: url-test
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    interval: 300
+
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+
+rules:
+  - "RULE-SET,private,🎯 全球直连"
+  - "RULE-SET,geosite-ai,🧠 AI"
+  - "RULE-SET,geosite-youtube,📹 YouTube"
+  - "RULE-SET,geosite-google,🍀 Google"
+  - "RULE-SET,geosite-github,👨‍💻 Github"
+  - "RULE-SET,geosite-onedrive,🐬 OneDrive"
+  - "RULE-SET,geosite-microsoft,🪟 Microsoft"
+  - "RULE-SET,geosite-apple,🍏 Apple"
+  - "RULE-SET,geosite-telegram,📲 Telegram"
+  - "RULE-SET,geosite-tiktok,🎵 TikTok"
+  - "RULE-SET,geosite-netflix,🎥 Netflix"
+  - "RULE-SET,geosite-paypal,💶 PayPal"
+  - "RULE-SET,geosite-steamcn,🎯 全球直连"
+  - "RULE-SET,geosite-steam,🎮 Steam"
+  - "RULE-SET,geosite-download,📥 Download"
+  - "RULE-SET,geosite-socks5,🫆 Socks5"
+  - "RULE-SET,geosite-bybit,💰 Bybit"
+  - "RULE-SET,geosite-kr,🔞 KRAV"
+  - "RULE-SET,geosite-wechat,🌎 Wechat"
+  - "RULE-SET,geosite-mycn,🎯 全球直连"
+  - "RULE-SET,geosite-!cn,🚀 默认代理"
+  - "RULE-SET,geosite-cn,🎯 全球直连"
+  - "RULE-SET,geoip-google,🍀 Google,no-resolve"
+  - "RULE-SET,geoip-apple,🍏 Apple,no-resolve"
+  - "RULE-SET,geoip-telegram,📲 Telegram,no-resolve"
+  - "RULE-SET,geoip-netflix,🎥 Netflix,no-resolve"
+  - "RULE-SET,private_ip,🎯 全球直连,no-resolve"
+  - "RULE-SET,geoip-cn,🎯 全球直连,no-resolve"
+  - "MATCH,🐠 漏网之鱼"
