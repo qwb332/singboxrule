@@ -54,27 +54,7 @@ jobs:
 
       - name: Clear old SRS and Auto Compile all JSON rules
         run: |
-          TARGET_DIR="config/singbox/rules"
-          
-          # 先清理掉该目录下可能残存的旧二进制 .srs 文件
-          find "$TARGET_DIR" -type f -name "*.srs" -exec rm -f {} \;
-          
-          # 🌟 核心升级：自动清洗 JSON 中的 // 注释、多行注释及末尾多余逗号，确保编译不会报错
-          find "$TARGET_DIR" -type f -name "*.json" -exec bash -c '
-            json_file="$1"
-            srs_file="${json_file%.json}.srs"
-            echo "Compiling: $json_file -> $srs_file"
-            
-            tmp_json=$(mktemp)
-            python3 -c "import re; content=open('\''$json_file'\'', encoding='\''utf-8'\'').read(); content=re.sub(r'//.*', '', content); content=re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL); content=re.sub(r',\s*([\]}])', r'\1', content); open(tmp_json, '\''w'\'', encoding='\''utf-8'\'').write(content)"
-            
-            if ! sing-box rule-set compile --output "$srs_file" "$tmp_json"; then
-              echo "Error compiling $json_file"
-              rm -f "$tmp_json"
-              exit 1
-            fi
-            rm -f "$tmp_json"
-          ' _ {} \;
+          python scripts/compile_srs.py
 
           # 清理下载的零碎压缩包，保持 workspace 干净
           rm -rf sing-box-${SING_BOX_VERSION}-linux-amd64 sing-box.tar.gz
