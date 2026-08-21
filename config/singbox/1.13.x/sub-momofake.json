@@ -150,21 +150,61 @@
       "type": "direct",
       "listen": "::",
       "listen_port": 1053
+    },
+    {
+      "tag": "http-in",
+      "type": "http",
+      "listen": "::",
+      "listen_port": 8080
+    },
+    {
+      "tag": "socks-in",
+      "type": "socks",
+      "listen": "::",
+      "listen_port": 1080
+    },
+    {
+      "tag": "redirect-in",
+      "type": "redirect",
+      "listen": "::",
+      "listen_port": 7890
+    },
+    {
+      "tag": "tproxy-in",
+      "type": "tproxy",
+      "listen": "::",
+      "listen_port": 7891
+    },
+    {
+      "tag": "tun-in",
+      "type": "tun",
+      "interface_name": "momo",
+      "address": [
+        "172.31.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": false,
+      "auto_redirect": false
     }
   ],
   "experimental": {
     "cache_file": {
       "enabled": true,
-      "path": "cache.db",
+      "path": "/etc/momo/run/cache.db",
       "store_fakeip": true
     },
     "clash_api": {
-      "external_controller": "0.0.0.0:9090",
-      "external_ui": "ui",
-      "secret": "",
-      "external_ui_download_url": "https://gh-proxy.org/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_controller": "0.0.0.0:9095",
+      "external_ui": "/etc/momo/run/ui",
+      "external_ui_download_url": "https://gh-proxy.org/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "🎯 全球直连",
+      "secret": "",
       "default_mode": "rule"
     }
+  },
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
   }
 }
