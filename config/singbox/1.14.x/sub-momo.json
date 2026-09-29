@@ -804,7 +804,7 @@
       "type": "api",
       "listen": "0.0.0.0",
       "listen_port": 9090,
-      "secret": "",
+      "secret": "passwd",
       "dashboard": {
         "enabled": true,
         "path": "dashboard"
@@ -822,7 +822,7 @@
       "external_ui": "/etc/momo/run/ui",
       "external_ui_download_url": "https://gh-proxy.org/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "直连",
-      "secret": "",
+      "secret": "passwd",
       "default_mode": "Rule"
     }
   },
