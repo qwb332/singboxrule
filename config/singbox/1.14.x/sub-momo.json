@@ -219,7 +219,7 @@
       ]
     },
     {
-      "tag": "Wallet",
+      "tag": "PayPal",
       "type": "selector",
       "outbounds": [
         "默认代理",
@@ -442,7 +442,7 @@
         "Telegram",
         "TikTok",
         "Netflix",
-        "Wallet",
+        "PayPal",
         "Steam",
         "Microsoft",
         "OneDrive",
@@ -644,19 +644,19 @@
       },
       {
         "rule_set": "geosite-paypal",
-        "outbound": "Wallet"
+        "outbound": "PayPal"
       },
       {
         "rule_set": "geosite-binance",
-        "outbound": "Wallet"
+        "outbound": "PayPal"
       },
       {
         "rule_set": "geosite-okx",
-        "outbound": "Wallet"
+        "outbound": "PayPal"
       },
       {
         "rule_set": "geosite-category-cryptocurrency",
-        "outbound": "Wallet"
+        "outbound": "PayPal"
       },
       {
         "rule_set": "geosite-steam@cn",
