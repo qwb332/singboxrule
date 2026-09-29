@@ -96,9 +96,8 @@ const outboundRules = outbound
   .map(i => {
     let [outboundPattern, tagPattern = '.*'] = i.split('🏷')
     const tagRegex = createTagRegExp(tagPattern)
-    const outboundMatcher = createOutboundMatcher(outboundPattern)
-    log(`匹配 🏷 ${tagRegex} 的节点将插入匹配 🕳 ${outboundMatcher.pattern} 的 outbound 中`)
-    return [outboundMatcher, tagRegex]
+    log(`匹配 🏷 ${tagRegex} 的节点将插入匹配 🕳 ${createOutboundRegExp(outboundPattern)} 的 outbound 中`)
+    return [outboundPattern, tagRegex]
   })
 
 log(`④ outbound 插入节点`)
@@ -106,13 +105,14 @@ if (!Array.isArray(config.outbounds)) {
   config.outbounds = []
 }
 config.outbounds.map(outbound => {
-  outboundRules.map(([outboundMatcher, tagRegex]) => {
-    if (outboundMatcher.test(outbound.tag)) {
+  outboundRules.map(([outboundPattern, tagRegex]) => {
+    const outboundRegex = createOutboundRegExp(outboundPattern)
+    if (outboundRegex.test(outbound.tag)) {
       if (!Array.isArray(outbound.outbounds)) {
         outbound.outbounds = []
       }
       const tags = getTags(proxies, tagRegex)
-      log(`🕳 ${outbound.tag} 匹配 ${outboundMatcher.pattern}, 插入 ${tags.length} 个 🏷 匹配 ${tagRegex} 的节点`)
+      log(`🕳 ${outbound.tag} 匹配 ${outboundRegex}, 插入 ${tags.length} 个 🏷 匹配 ${tagRegex} 的节点`)
       outbound.outbounds.push(...tags)
     }
   })
@@ -126,8 +126,9 @@ const compatible_outbound = {
 let compatible
 log(`⑤ 空 outbounds 检查`)
 config.outbounds.map(outbound => {
-  outboundRules.map(([outboundMatcher, tagRegex]) => {
-    if (outboundMatcher.test(outbound.tag)) {
+  outboundRules.map(([outboundPattern, tagRegex]) => {
+    const outboundRegex = createOutboundRegExp(outboundPattern)
+    if (outboundRegex.test(outbound.tag)) {
       if (!Array.isArray(outbound.outbounds)) {
         outbound.outbounds = []
       }
@@ -179,36 +180,8 @@ function log(v) {
 function createTagRegExp(tagPattern) {
   return new RegExp(tagPattern.replace('ℹ️', ''), tagPattern.includes('ℹ️') ? 'i' : undefined)
 }
-function stripEmoji(str) {
-  return (str || '').replace(/[\p{Extended_Pictographic}\p{Emoji_Presentation}\p{Emoji_Modifier}\p{Emoji_Component}\u200D\uFE0F\uFE0E\s]/gu, '')
+function createOutboundRegExp(outboundPattern) {
+  return new RegExp(outboundPattern.replace('ℹ️', ''), outboundPattern.includes('ℹ️') ? 'i' : undefined)
 }
-function createOutboundMatcher(outboundPattern) {
-  const isCaseInsensitive = outboundPattern.includes('ℹ️')
-  const cleanP = outboundPattern.replace(/ℹ️/g, '')
-  const rawRegex = new RegExp(cleanP, isCaseInsensitive ? 'i' : undefined)
-
-  const strippedParts = cleanP.split('|').map(s => {
-    let stripped = stripEmoji(s)
-    if (stripped.toLowerCase() === 'paypal' || stripped.toLowerCase() === 'wallet') return '(?:paypal|wallet)'
-    return stripped
-  }).filter(Boolean)
-
-  const cleanRegex = strippedParts.length > 0 
-    ? new RegExp('^(?:' + strippedParts.join('|') + ')$', isCaseInsensitive ? 'i' : undefined)
-    : null
-
-  return {
-    pattern: outboundPattern,
-    test: function(tag) {
-      if (rawRegex.test(tag)) return true
-      if (cleanRegex && cleanRegex.test(stripEmoji(tag))) return true
-      return false
-    },
-    toString: function() {
-      return rawRegex.toString()
-    }
-  }
-}
-const createOutboundRegExp = createOutboundMatcher
 
 log(`🔚 结束`)
