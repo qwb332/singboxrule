@@ -21,7 +21,7 @@
       {"query_type": ["A", "AAAA"], "server": "fake-ip-dns-server", "rewrite_ttl": 1}
     ],
     "final": "google",
-    "strategy": "ipv4_only",
+    "strategy": "prefer_ipv4",
     "cache_capacity": 8192,
     "optimistic": {"enabled": true},
     "reverse_mapping": true
