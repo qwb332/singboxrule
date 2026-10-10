@@ -63,6 +63,10 @@
         "server": "ali"
       },
       {
+        "rule_set": "bt",
+        "server": "google"
+      },
+      {
         "rule_set": "fakeipfilter-!cn",
         "server": "google"
       },
@@ -487,6 +491,10 @@
         "outbound": "直连"
       },
       {
+        "rule_set": "bt",
+        "outbound": "默认代理"
+      },
+      {
         "source_ip_cidr": [
           "192.168.2.240/32"
         ],
@@ -566,10 +574,6 @@
       {
         "rule_set": "geosite-socks5",
         "outbound": "Socks5"
-      },
-      {
-        "rule_set": "bt",
-        "outbound": "默认代理"
       },
       {
         "rule_set": "geosite-bybit",
