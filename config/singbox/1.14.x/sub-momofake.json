@@ -61,16 +61,22 @@
   ],
   "route": {
     "rules": [
+      {"inbound": "dns-in", "action": "hijack-dns"},
+      {
+        "source_ip_cidr": [
+          "192.168.2.240/32"
+        ],
+        "outbound": "直连"
+      },
       {
         "type": "logical",
         "mode": "or",
         "rules": [{"domain_suffix": "push.apple.com"}, {"rule_set": "geoip-telegram"}],
         "invert": true,
         "action": "sniff",
-        "sniffer": ["http", "tls", "stun", "quic", "dns", "bittorrent"],
+        "sniffer": ["http", "tls", "stun", "quic", "dns"],
         "timeout": "100ms"
       },
-      {"inbound": "dns-in", "action": "hijack-dns"},
       {"ip_is_private": true, "outbound": "直连"},
       {
         "type": "logical",
@@ -78,30 +84,6 @@
         "rules": [{"port": 853}, {"protocol": ["stun", "quic"]}],
         "action": "reject",
         "no_drop": true
-      },
-      {
-        "process_name": [
-          "aria2c"
-        ],
-        "outbound": "直连"
-      },
-      {
-        "source_port": [
-          32516
-        ],
-        "outbound": "直连"
-      },
-      {
-        "port": [
-          32516,
-          6800,
-          6801
-        ],
-        "outbound": "直连"
-      },
-      {
-        "protocol": "bittorrent",
-        "outbound": "直连"
       },
       {"network": "icmp", "action": "resolve"},
       {"network": "icmp", "outbound": "直连"},
