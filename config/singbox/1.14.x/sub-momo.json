@@ -582,6 +582,10 @@
         "outbound": "Socks5"
       },
       {
+        "rule_set": "geosite-tracker",
+        "outbound": "默认代理"
+      },
+      {
         "rule_set": "geosite-bybit",
         "outbound": "Bybit"
       },
@@ -718,6 +722,12 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/{tag}.srs"
+      },
+      {
+        "tag": "geosite-tracker",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/tracker.srs"
       },
       {
         "tag": "geoip-telegram",
