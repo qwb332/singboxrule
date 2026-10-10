@@ -490,20 +490,6 @@
         "source_ip_cidr": [
           "192.168.2.240/32"
         ],
-        "port": [
-          80,
-          443,
-          1337,
-          2710,
-          6969,
-          8080
-        ],
-        "outbound": "默认代理"
-      },
-      {
-        "source_ip_cidr": [
-          "192.168.2.240/32"
-        ],
         "outbound": "直连"
       },
       {
@@ -582,7 +568,7 @@
         "outbound": "Socks5"
       },
       {
-        "rule_set": "geosite-tracker",
+        "rule_set": "bt",
         "outbound": "默认代理"
       },
       {
@@ -724,10 +710,10 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/{tag}.srs"
       },
       {
-        "tag": "geosite-tracker",
+        "tag": "bt",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/tracker.srs"
+        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/bt.srs"
       },
       {
         "tag": "geoip-telegram",

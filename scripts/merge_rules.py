@@ -85,11 +85,93 @@ def merge_rule(config):
                 json.dump(fallback_data, f, indent=2, ensure_ascii=False)
             print(f"[{name}] Wrote fallback ruleset to {local_path}")
 
+def fetch_bt_trackers():
+    bt_rule_path = os.path.join("config", "singbox", "rules", "bt.json")
+    print("[BT Trackers] Fetching latest tracker lists...")
+    
+    tracker_urls = [
+        "https://trackerslist.com/all_aria2.txt",
+        "https://cdn.jsdelivr.net/gh/XIU2/TrackersListCollection@master/all_aria2.txt",
+        "https://trackers.p3terx.com/all_aria2.txt"
+    ]
+    
+    # Pre-add base service domains for tracker lists
+    domains = {
+        "trackerslist.com",
+        "cdn.jsdelivr.net",
+        "trackers.p3terx.com",
+        "raw.githubusercontent.com",
+        "github.com"
+    }
+    ips = set()
+    
+    import re
+    from urllib.parse import urlparse
+    
+    for url in tracker_urls:
+        try:
+            print(f"[BT Trackers] Downloading from {url}...")
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                content = resp.read().decode('utf-8', errors='ignore')
+                for item in content.split(','):
+                    item = item.strip()
+                    if not item:
+                        continue
+                    parsed = urlparse(item)
+                    host = parsed.hostname
+                    if host:
+                        if re.match(r'^\d+\.\d+\.\d+\.\d+$', host):
+                            ips.add(f"{host}/32")
+                        elif ':' in host:
+                            ips.add(f"{host}/128")
+                        else:
+                            domains.add(host)
+        except Exception as e:
+            print(f"[BT Trackers] Error fetching {url}: {e}")
+            
+    # Also include official/community geosite:tracker from MetaCubeX if accessible
+    metacubex_tracker_url = "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/tracker.json"
+    try:
+        print(f"[BT Trackers] Merging MetaCubeX tracker rules from {metacubex_tracker_url}...")
+        req = urllib.request.Request(metacubex_tracker_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            for rule in data.get("rules", []):
+                for d in rule.get("domain", []):
+                    domains.add(d)
+                for ds in rule.get("domain_suffix", []):
+                    domains.add(ds)
+    except Exception as e:
+        print(f"[BT Trackers] Error fetching MetaCubeX trackers: {e}")
+        
+    sorted_domains = sorted(list(domains))
+    sorted_ips = sorted(list(ips))
+    
+    rules = []
+    if sorted_domains:
+        rules.append({"domain_suffix": sorted_domains})
+    if sorted_ips:
+        rules.append({"ip_cidr": sorted_ips})
+        
+    bt_data = {
+        "version": 1,
+        "rules": rules
+    }
+    
+    os.makedirs(os.path.dirname(bt_rule_path), exist_ok=True)
+    with open(bt_rule_path, "w", encoding="utf-8") as f:
+        json.dump(bt_data, f, indent=2, ensure_ascii=False)
+        
+    print(f"[BT Trackers] Successfully generated {bt_rule_path} with {len(sorted_domains)} domains and {len(sorted_ips)} IPs.")
+
 def main():
     print("Starting rules merge process...")
     for config in MERGE_CONFIGS:
         merge_rule(config)
+    fetch_bt_trackers()
     print("All rules merged successfully.")
 
 if __name__ == "__main__":
     main()
+

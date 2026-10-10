@@ -67,20 +67,6 @@
         "source_ip_cidr": [
           "192.168.2.240/32"
         ],
-        "port": [
-          80,
-          443,
-          1337,
-          2710,
-          6969,
-          8080
-        ],
-        "outbound": "默认代理"
-      },
-      {
-        "source_ip_cidr": [
-          "192.168.2.240/32"
-        ],
         "outbound": "直连"
       },
       {
@@ -108,7 +94,7 @@
       {"rule_set": "geosite-cn", "outbound": "直连"},
       {"rule_set": "geosite-download", "outbound": "Download"},
       {"rule_set": "geosite-socks5", "outbound": "Socks5"},
-      {"rule_set": "geosite-tracker", "outbound": "默认代理"},
+      {"rule_set": "bt", "outbound": "默认代理"},
       {"rule_set": "geosite-bybit", "outbound": "Bybit"},
       {"rule_set": "geosite-kr", "outbound": "KRAV"},
       {"rule_set": "geosite-wechat", "outbound": "Wechat"},
@@ -138,7 +124,7 @@
     "rule_set": [
       {"tag": ["fakeipfilter-cn", "fakeipfilter-!cn"], "type": "remote", "format": "source", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/{tag}.json"},
       {"tag": ["geosite-category-ai-!cn", "geosite-youtube", "geosite-google", "geosite-github", "geosite-onedrive", "geosite-microsoft", "geosite-microsoft@cn","geosite-apple", "geosite-apple@cn", "geosite-telegram", "geosite-tiktok", "geosite-netflix", "geosite-paypal", "geosite-binance", "geosite-okx", "geosite-category-cryptocurrency", "geosite-steam@cn", "geosite-steam", "geosite-geolocation-!cn", "geosite-cn", "geosite-private"], "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/{tag}.srs"},
-      {"tag": "geosite-tracker", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/tracker.srs"},
+      {"tag": "bt", "type": "remote", "format": "binary", "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/bt.srs"},
       {"tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs"},
       {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"},
       {"tag": "geosite-mycn", "type": "remote", "format": "binary", "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/cn.srs"},
