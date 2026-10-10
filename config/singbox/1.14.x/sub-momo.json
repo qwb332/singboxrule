@@ -556,6 +556,10 @@
         "outbound": "直连"
       },
       {
+        "rule_set": "geosite-cn",
+        "outbound": "直连"
+      },
+      {
         "rule_set": "geosite-download",
         "outbound": "Download"
       },
