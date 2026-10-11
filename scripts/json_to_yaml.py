@@ -8,11 +8,44 @@ SINGBOX_RULES_DIR = os.path.join("config", "singbox", "rules")
 MIHOMO_RULES_DIR = os.path.join("config", "mihomo", "rules")
 FAKEIP_FILTER_URL = "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/fakeipfilter.json"
 
+# Mihomo (Windows client) does not need BT or iStoreOS LAN rules
+SKIP_MIHOMO_FILES = {"bt.json"}
+MIHOMO_EXCLUDED_DOMAINS = {
+    "istoreos.com",
+    "bitcomet.com",
+    "bittorrent.com",
+    "utorrent.com",
+    "transmissionbt.com",
+}
+
 def load_jsonc_data(content):
     content = re.sub(r'//.*', '', content)
     content = re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL)
     content = re.sub(r',\s*([\]}])', r'\1', content)
     return json.loads(content)
+
+
+def filter_rules_for_mihomo(rules_data):
+    filtered_rules = []
+    for rule in rules_data.get("rules", []):
+        new_rule = dict(rule)
+        if "domain" in new_rule:
+            vals = new_rule["domain"] if isinstance(new_rule["domain"], list) else [new_rule["domain"]]
+            vals = [d for d in vals if d not in MIHOMO_EXCLUDED_DOMAINS]
+            if vals:
+                new_rule["domain"] = vals
+            else:
+                del new_rule["domain"]
+        if "domain_suffix" in new_rule:
+            vals = new_rule["domain_suffix"] if isinstance(new_rule["domain_suffix"], list) else [new_rule["domain_suffix"]]
+            vals = [d for d in vals if d not in MIHOMO_EXCLUDED_DOMAINS]
+            if vals:
+                new_rule["domain_suffix"] = vals
+            else:
+                del new_rule["domain_suffix"]
+        if new_rule:
+            filtered_rules.append(new_rule)
+    return {"version": rules_data.get("version", 1), "rules": filtered_rules}
 
 
 def determine_ruleset_behavior(rules_data):
@@ -108,6 +141,9 @@ def main():
         
     for filename in os.listdir(SINGBOX_RULES_DIR):
         if filename.endswith(".json"):
+            if filename in SKIP_MIHOMO_FILES:
+                print(f"Skipping {filename} for Mihomo.")
+                continue
             json_path = os.path.join(SINGBOX_RULES_DIR, filename)
             rule_name = os.path.splitext(filename)[0]
             
@@ -115,6 +151,7 @@ def main():
             try:
                 with open(json_path, 'r', encoding='utf-8') as f:
                     rules_data = load_jsonc_data(f.read())
+                rules_data = filter_rules_for_mihomo(rules_data)
                     
                 behavior = determine_ruleset_behavior(rules_data)
                 payload = convert_to_clash_payload(rules_data, behavior)
