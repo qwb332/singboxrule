@@ -14,7 +14,6 @@
       {"clash_mode": "Direct", "server": "ali"},
       {"clash_mode": "Global", "server": "fake-ip-dns-server"},
       {"rule_set": ["fakeipfilter-cn", "geosite-mycn", "geosite-cn", "geosite-microsoft@cn", "geosite-apple@cn", "geosite-private"], "server": "ali"},
-      {"rule_set": "bt", "server": "google"},
       {"rule_set": "fakeipfilter-!cn", "server": "google"},
       {"type": "logical", "mode": "and", "rules": [{"query_type": ["A", "AAAA"]}, {"rule_set": "geosite-geolocation-!cn", "invert": true}], "action": "evaluate", "server": "google", "client_subnet": "223.5.5.0/24", "timeout": "2s"},
       {"match_response": true, "rule_set": "geoip-cn", "server": "ali"},
@@ -73,6 +72,7 @@
       },
       {"inbound": "dns-in", "action": "hijack-dns"},
       {"ip_is_private": true, "outbound": "直连"},
+      {"rule_set": "geosite-mycn", "outbound": "直连"},
       {"rule_set": "bt", "outbound": "默认代理"},
       {
         "source_ip_cidr": [
@@ -92,10 +92,7 @@
       {"clash_mode": "Direct", "outbound": "直连"},
       {"clash_mode": "Global", "outbound": "GLOBAL"},
       {"rule_set": "geosite-private", "outbound": "直连"},
-      {"rule_set": "geosite-mycn", "outbound": "直连"},
-      {"rule_set": "geosite-cn", "outbound": "直连"},
       {"rule_set": "geosite-download", "outbound": "Download"},
-      {"rule_set": "geosite-socks5", "outbound": "Socks5"},
       {"rule_set": "geosite-bybit", "outbound": "Bybit"},
       {"rule_set": "geosite-kr", "outbound": "KRAV"},
       {"rule_set": "geosite-wechat", "outbound": "Wechat"},
@@ -119,6 +116,7 @@
       {"rule_set": "geosite-steam", "outbound": "Steam"},
       {"rule_set": "geosite-geolocation-!cn", "outbound": "默认代理"},
       {"action": "resolve"},
+      {"rule_set": "geosite-socks5", "outbound": "Socks5"},
       {"rule_set": "geoip-telegram", "outbound": "Telegram"},
       {"rule_set": "geoip-cn", "outbound": "直连"}
     ],

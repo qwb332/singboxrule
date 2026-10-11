@@ -63,10 +63,6 @@
         "server": "ali"
       },
       {
-        "rule_set": "bt",
-        "server": "google"
-      },
-      {
         "rule_set": "fakeipfilter-!cn",
         "server": "google"
       },
@@ -94,6 +90,10 @@
         "match_response": true,
         "rule_set": "geoip-cn",
         "server": "ali"
+      },
+      {
+        "match_response": true,
+        "action": "respond"
       }
     ],
     "final": "google",
@@ -513,6 +513,10 @@
         "outbound": "直连"
       },
       {
+        "rule_set": "geosite-mycn",
+        "outbound": "直连"
+      },
+      {
         "rule_set": "bt",
         "outbound": "默认代理"
       },
@@ -560,20 +564,8 @@
         "outbound": "直连"
       },
       {
-        "rule_set": "geosite-mycn",
-        "outbound": "直连"
-      },
-      {
-        "rule_set": "geosite-cn",
-        "outbound": "直连"
-      },
-      {
         "rule_set": "geosite-download",
         "outbound": "Download"
-      },
-      {
-        "rule_set": "geosite-socks5",
-        "outbound": "Socks5"
       },
       {
         "rule_set": "geosite-bybit",
@@ -665,6 +657,10 @@
       },
       {
         "action": "resolve"
+      },
+      {
+        "rule_set": "geosite-socks5",
+        "outbound": "Socks5"
       },
       {
         "rule_set": "geoip-telegram",

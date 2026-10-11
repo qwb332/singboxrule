@@ -98,10 +98,16 @@ def fetch_bt_trackers():
     # Pre-add base service domains for tracker lists
     domains = {
         "trackerslist.com",
-        "cdn.jsdelivr.net",
-        "trackers.p3terx.com",
+        "trackers.p3terx.com"
+    }
+    excluded_domains = {
+        "github.com",
         "raw.githubusercontent.com",
-        "github.com"
+        "cdn.jsdelivr.net",
+        "bittorrent.com",
+        "bitcomet.com",
+        "utorrent.com",
+        "transmissionbt.com"
     }
     ips = set()
     
@@ -144,6 +150,11 @@ def fetch_bt_trackers():
                     domains.add(ds)
     except Exception as e:
         print(f"[BT Trackers] Error fetching MetaCubeX trackers: {e}")
+
+    domains = {
+        d for d in domains
+        if d not in excluded_domains and not d.endswith(".cn")
+    }
         
     sorted_domains = sorted(list(domains))
     sorted_ips = sorted(list(ips))
