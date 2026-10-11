@@ -97,7 +97,7 @@
       }
     ],
     "final": "google",
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "cache_capacity": 8192,
     "optimistic": {
       "enabled": true
@@ -483,24 +483,6 @@
   "route": {
     "rules": [
       {
-        "inbound": "dns-in",
-        "action": "hijack-dns"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "直连"
-      },
-      {
-        "rule_set": "bt",
-        "outbound": "默认代理"
-      },
-      {
-        "source_ip_cidr": [
-          "192.168.2.240/32"
-        ],
-        "outbound": "直连"
-      },
-      {
         "type": "logical",
         "mode": "or",
         "rules": [
@@ -521,6 +503,24 @@
           "dns"
         ],
         "timeout": "100ms"
+      },
+      {
+        "inbound": "dns-in",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "直连"
+      },
+      {
+        "rule_set": "bt",
+        "outbound": "默认代理"
+      },
+      {
+        "source_ip_cidr": [
+          "192.168.2.240/32"
+        ],
+        "outbound": "直连"
       },
       {
         "type": "logical",
