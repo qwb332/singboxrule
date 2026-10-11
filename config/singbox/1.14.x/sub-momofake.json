@@ -68,7 +68,7 @@
         "rules": [{"domain_suffix": "push.apple.com"}, {"rule_set": "geoip-telegram"}],
         "invert": true,
         "action": "sniff",
-        "sniffer": ["http", "tls", "stun", "quic", "dns"],
+        "sniffer": ["http", "tls", "stun", "quic", "dns", "bittorrent"],
         "timeout": "100ms"
       },
       {"inbound": "dns-in", "action": "hijack-dns"},

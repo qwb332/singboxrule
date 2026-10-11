@@ -500,7 +500,8 @@
           "tls",
           "stun",
           "quic",
-          "dns"
+          "dns",
+          "bittorrent"
         ],
         "timeout": "100ms"
       },
