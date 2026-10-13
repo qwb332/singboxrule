@@ -17,6 +17,7 @@
       {"rule_set": "fakeipfilter-!cn", "server": "google"},
       {"type": "logical", "mode": "and", "rules": [{"query_type": ["A", "AAAA"]}, {"rule_set": "geosite-geolocation-!cn", "invert": true}], "action": "evaluate", "server": "google", "client_subnet": "223.5.5.0/24", "timeout": "2s"},
       {"match_response": true, "rule_set": "geoip-cn", "server": "ali"},
+      {"type": "logical", "mode": "and", "rules": [{"match_response": true, "response_rcode": "NOERROR"}, {"match_response": true, "ip_accept_any": true, "invert": true}], "action": "respond"},
       {"query_type": ["A", "AAAA"], "server": "fake-ip-dns-server", "rewrite_ttl": 1}
     ],
     "final": "google",
