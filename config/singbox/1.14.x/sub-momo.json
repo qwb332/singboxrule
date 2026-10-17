@@ -10,12 +10,14 @@
       {
         "tag": "ali",
         "type": "https",
-        "server": "223.5.5.5"
+        "server": "223.5.5.5",
+        "detour": "直连"
       },
       {
         "tag": "tx",
         "type": "https",
         "server": "doh.pub",
+        "detour": "直连",
         "domain_resolver": "hosts"
       },
       {
@@ -84,7 +86,7 @@
         "action": "evaluate",
         "server": "google",
         "client_subnet": "223.5.5.0/24",
-        "timeout": "2s"
+        "timeout": "4s"
       },
       {
         "match_response": true,
