@@ -360,21 +360,6 @@
       ]
     },
     {
-      "tag": "Wechat",
-      "type": "selector",
-      "outbounds": [
-        "默认代理",
-        "直连",
-        "日本手动",
-        "狮城手动",
-        "香港手动",
-        "美国手动",
-        "台湾手动",
-        "手动选择",
-        "自动选择"
-      ]
-    },
-    {
       "tag": "漏网之鱼",
       "type": "selector",
       "outbounds": [
@@ -457,7 +442,6 @@
         "Socks5",
         "Bybit",
         "KRAV",
-        "Wechat",
         "漏网之鱼",
         "日本手动",
         "狮城手动",
@@ -576,10 +560,6 @@
       {
         "rule_set": "geosite-kr",
         "outbound": "KRAV"
-      },
-      {
-        "rule_set": "geosite-wechat",
-        "outbound": "Wechat"
       },
       {
         "rule_set": "geosite-category-ai-!cn",
@@ -752,12 +732,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/kr.srs"
-      },
-      {
-        "tag": "geosite-wechat",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/wechat.srs"
       },
       {
         "tag": "geosite-bybit",

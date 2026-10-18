@@ -119,7 +119,7 @@ rule-providers:
     format: yaml
     type: http
 
-  # 本地转换生成的规则集 (wechat为classical yaml)
+  # 本地转换生成的规则集
   geosite-mycn:
     url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/cn.yaml
     path: ./ruleset/geosite-mycn.yaml
@@ -145,13 +145,6 @@ rule-providers:
     url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/kr.yaml
     path: ./ruleset/geosite-kr.yaml
     behavior: domain
-    interval: 86400
-    format: yaml
-    type: http
-  geosite-wechat:
-    url: https://githubproxy.cc/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/mihomo/rules/wechat.yaml
-    path: ./ruleset/geosite-wechat.yaml
-    behavior: classical
     interval: 86400
     format: yaml
     type: http
@@ -434,19 +427,6 @@ proxy-groups:
       - 🇸🇬 狮城手动
       - 🐸 手动选择
 
-  - name: 🌎 Wechat
-    type: select
-    include-all: true
-    proxies:
-      - 🚀 默认代理
-      - 🎯 全球直连
-      - 🇺🇲 美国手动
-      - 🇭🇰 香港手动
-      - 🇹🇼 台湾手动
-      - 🇯🇵 日本手动
-      - 🇸🇬 狮城手动
-      - 🐸 手动选择
-
   - name: 🇺🇲 美国手动
     type: select
     include-all: true
@@ -512,7 +492,6 @@ rules:
   - "RULE-SET,geosite-socks5,🫆 Socks5"
   - "RULE-SET,geosite-bybit,💰 Bybit"
   - "RULE-SET,geosite-kr,🔞 KRAV"
-  - "RULE-SET,geosite-wechat,🌎 Wechat"
   - "RULE-SET,geosite-mycn,🎯 全球直连"
   - "RULE-SET,geosite-!cn,🚀 默认代理"
   - "RULE-SET,geosite-cn,🎯 全球直连"

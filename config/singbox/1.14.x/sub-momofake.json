@@ -44,7 +44,6 @@
     {"tag": "Socks5", "type": "selector", "outbounds": ["默认代理", "直连", "日本手动", "狮城手动", "香港手动", "美国手动", "台湾手动", "手动选择", "自动选择"]},
     {"tag": "Bybit", "type": "selector", "outbounds": ["默认代理", "直连", "日本手动", "狮城手动", "香港手动", "美国手动", "台湾手动", "手动选择", "自动选择"]},
     {"tag": "KRAV", "type": "selector", "outbounds": ["默认代理", "直连", "日本手动", "狮城手动", "香港手动", "美国手动", "台湾手动", "手动选择", "自动选择"]},
-    {"tag": "Wechat", "type": "selector", "outbounds": ["默认代理", "直连", "日本手动", "狮城手动", "香港手动", "美国手动", "台湾手动", "手动选择", "自动选择"]},
     {"tag": "漏网之鱼", "type": "selector", "outbounds": ["默认代理", "直连", "日本手动", "狮城手动", "香港手动", "美国手动", "台湾手动", "手动选择", "自动选择"]},
     {"tag": "日本手动", "type": "selector", "outbounds": []},
     {"tag": "狮城手动", "type": "selector", "outbounds": []},
@@ -54,7 +53,7 @@
     {"tag": "手动选择", "type": "selector", "outbounds": []},
     {"tag": "自动选择", "type": "urltest", "outbounds": [], "url": "https://clients1.google.com/generate_204", "interval": "30m", "tolerance": 100},
     {"tag": "延迟辅助", "type": "urltest", "outbounds": ["直连"], "url": "http://connect.rom.miui.com/generate_204", "interval": "30m"},
-    {"tag": "GLOBAL", "type": "selector", "outbounds": ["默认代理", "AI", "YouTube", "Google", "Github", "Telegram", "TikTok", "Netflix", "Wallet", "Steam", "Microsoft", "OneDrive", "Apple", "Download", "Socks5", "Bybit", "KRAV", "Wechat", "漏网之鱼", "日本手动", "狮城手动", "香港手动", "美国手动", "台湾手动", "手动选择", "自动选择", "延迟辅助", "直连"]},
+    {"tag": "GLOBAL", "type": "selector", "outbounds": ["默认代理", "AI", "YouTube", "Google", "Github", "Telegram", "TikTok", "Netflix", "Wallet", "Steam", "Microsoft", "OneDrive", "Apple", "Download", "Socks5", "Bybit", "KRAV", "漏网之鱼", "日本手动", "狮城手动", "香港手动", "美国手动", "台湾手动", "手动选择", "自动选择", "延迟辅助", "直连"]},
     {"tag": "直连", "type": "direct", "domain_resolver": "ali"}
   ],
   "http_clients": [
@@ -96,7 +95,6 @@
       {"rule_set": "geosite-download", "outbound": "Download"},
       {"rule_set": "geosite-bybit", "outbound": "Bybit"},
       {"rule_set": "geosite-kr", "outbound": "KRAV"},
-      {"rule_set": "geosite-wechat", "outbound": "Wechat"},
       {"rule_set": "geosite-category-ai-!cn", "outbound": "AI"},
       {"rule_set": "geosite-youtube", "outbound": "YouTube"},
       {"rule_set": "geosite-google", "outbound": "Google"},
@@ -131,7 +129,6 @@
       {"tag": "geosite-download", "type": "remote", "format": "binary", "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/download.srs"},
       {"tag": "geosite-socks5", "type": "remote", "format": "binary", "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/socks5.srs"},
       {"tag": "geosite-kr", "type": "remote", "format": "binary", "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/kr.srs"},
-      {"tag": "geosite-wechat", "type": "remote", "format": "binary", "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/wechat.srs"},
       {"tag": "geosite-bybit", "type": "remote", "format": "binary", "url": "https://gh-proxy.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bybit.srs"}
     ],
     "final": "漏网之鱼",

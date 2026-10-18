@@ -44,10 +44,6 @@
         "server": "local"
       },
       {
-        "rule_set": "geosite-wechat",
-        "server": "local"
-      },
-      {
         "rule_set": "geosite-steamcn",
         "server": "local"
       }
@@ -312,20 +308,6 @@
       ]
     },
     {
-      "tag": "🌎 Wechat",
-      "type": "selector",
-      "outbounds": [
-        "🚀 默认代理",
-        "🎯 全球直连",
-        "🇺🇲 美国手动",
-        "🇭🇰 香港手动",
-        "🇹🇼 台湾手动",
-        "🇯🇵 日本手动",
-        "🇸🇬 狮城手动",
-        "🐸 手动选择"
-      ]
-    },
-    {
       "tag": "🇺🇲 美国手动",
       "type": "selector",
       "outbounds": []
@@ -394,7 +376,6 @@
         "🫆 Socks5",
         "💰 Bybit",
         "🔞 KRAV",
-        "🌎 Wechat",
         "🇺🇲 美国手动",
         "🇭🇰 香港手动",
         "🇹🇼 台湾手动",
@@ -523,10 +504,6 @@
       {
         "rule_set": "geosite-kr",
         "outbound": "🔞 KRAV"
-      },
-      {
-        "rule_set": "geosite-wechat",
-        "outbound": "🌎 Wechat"
       },
       {
         "rule_set": "geosite-mycn",
@@ -746,14 +723,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/kr.srs",
-        "download_detour": "🎯 全球直连",
-        "update_interval": "1d"
-      },
-      {
-        "tag": "geosite-wechat",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qwb332/singboxrule/refs/heads/main/config/singbox/rules/wechat.srs",
         "download_detour": "🎯 全球直连",
         "update_interval": "1d"
       },
