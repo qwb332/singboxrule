@@ -491,6 +491,7 @@
     }
   ],
   "route": {
+    "find_neighbor": true,
     "rules": [
       {
         "type": "logical",
@@ -533,6 +534,12 @@
       {
         "source_ip_cidr": [
           "192.168.2.240/32"
+        ],
+        "outbound": "直连"
+      },
+      {
+        "source_mac_address": [
+          "02:42:c0:a8:02:f0"
         ],
         "outbound": "直连"
       },
