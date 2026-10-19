@@ -203,6 +203,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
       - ♻️ 自动选择
 
@@ -217,6 +218,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 📹 YouTube
@@ -230,6 +232,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🍀 Google
@@ -243,6 +246,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 👨‍💻 Github
@@ -256,6 +260,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 📲 Telegram
@@ -269,6 +274,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🎵 TikTok
@@ -282,6 +288,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🎥 Netflix
@@ -295,6 +302,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 💶 PayPal
@@ -308,6 +316,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🎮 Steam
@@ -321,6 +330,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🪟 Microsoft
@@ -334,6 +344,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🐬 OneDrive
@@ -347,6 +358,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🍏 Apple
@@ -360,6 +372,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🐠 漏网之鱼
@@ -373,6 +386,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 📥 Download
@@ -386,6 +400,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🫆 Socks5
@@ -399,6 +414,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 💰 Bybit
@@ -412,6 +428,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🔞 KRAV
@@ -425,6 +442,7 @@ proxy-groups:
       - 🇹🇼 台湾手动
       - 🇯🇵 日本手动
       - 🇸🇬 狮城手动
+      - 🇰🇷 韩国手动
       - 🐸 手动选择
 
   - name: 🇺🇲 美国手动
@@ -456,6 +474,12 @@ proxy-groups:
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     filter: (?i)新加坡|Singapore|SG|🇸🇬
+
+  - name: 🇰🇷 韩国手动
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    filter: (?i)韩国|首尔|Korea|KR|KOR|🇰🇷
 
   - name: 🐸 手动选择
     type: select
