@@ -3,6 +3,8 @@
   "rules": [
     {
       "domain_suffix": [
+        "ntp.org",
+        "3gppnetwork.org",
         "0qit4.com",
         "2i2b5c.com",
         "aliapp.org",
