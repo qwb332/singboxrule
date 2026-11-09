@@ -16,6 +16,7 @@ MIHOMO_EXCLUDED_DOMAINS = {
     "bittorrent.com",
     "utorrent.com",
     "transmissionbt.com",
+    "trackerslist.com",
 }
 
 def load_jsonc_data(content):

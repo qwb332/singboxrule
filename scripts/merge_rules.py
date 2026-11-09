@@ -97,7 +97,6 @@ def fetch_bt_trackers():
     
     # Pre-add base service domains for tracker lists
     domains = {
-        "trackerslist.com",
         "trackers.p3terx.com"
     }
     excluded_domains = {
@@ -107,7 +106,8 @@ def fetch_bt_trackers():
         "bittorrent.com",
         "bitcomet.com",
         "utorrent.com",
-        "transmissionbt.com"
+        "transmissionbt.com",
+        "trackerslist.com"
     }
     ips = set()
     
