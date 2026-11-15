@@ -7,18 +7,10 @@
       {"tag": "tx", "type": "https", "server": "doh.pub", "domain_resolver": "hosts"},
       {"tag": "google", "type": "https", "server": "8.8.8.8", "detour": "默认代理"},
       {"tag": "fake-ip-dns-server", "type": "fakeip", "inet4_range": "198.19.0.0/16", "inet6_range": "2001:2::/48"},
-      {"type": "hosts", "tag": "hosts", "predefined": {
-        "doh.pub": ["1.12.12.21", "120.53.53.53"],
-        "op.wenbi332.eu.org": ["192.168.2.250"],
-        "io.wenbi332.eu.org": ["192.168.2.250"],
-        "xiaoya.wenbi332.eu.org": ["192.168.2.250"],
-        "pan.wenbi332.eu.org": ["192.168.2.250"],
-        "ms365.wenbi332.eu.org": ["192.168.2.250"]
-      }}
+      {"type": "hosts", "tag": "hosts", "predefined": {"doh.pub": ["1.12.12.21", "120.53.53.53"]}}
     ],
     "rules": [
       {"query_type": ["HTTPS", "SVCB"], "action": "reject"},
-      {"domain": ["op.wenbi332.eu.org", "io.wenbi332.eu.org", "xiaoya.wenbi332.eu.org", "pan.wenbi332.eu.org", "ms365.wenbi332.eu.org"], "server": "hosts"},
       {"clash_mode": "Direct", "server": "ali"},
       {"clash_mode": "Global", "server": "fake-ip-dns-server"},
       {"rule_set": ["fakeipfilter-cn", "geosite-mycn", "cn", "microsoft@cn", "apple@cn", "private"], "server": "ali"},
